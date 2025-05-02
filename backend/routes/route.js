@@ -1,8 +1,8 @@
 import express from "express";
-import { getAdmin, getAdminById, addAdmin, updateAdmin, deleteAdmin  } from "../controllers/adminController";
-import { getPengunjung, getPengunjungById, addPengunjung, updatePengunjung, deletePengunjung } from "../controllers/pengunjungController";
-import { getKonser, getKonserById, addKonser, updateKonser, deleteKonser } from "../controllers/konserController";
-import { getTiket, getTiketById, addTiket, updateTiket, deleteTiket } from "../controllers/tiketController";
+import { getAdmin, getAdminById, addAdmin, updateAdmin, deleteAdmin  } from "../controllers/adminController.js";
+import { getPengunjung, getPengunjungById, addPengunjung, updatePengunjung, deletePengunjung } from "../controllers/pengunjungController.js";
+import { getKonser, getKonserById, addKonser, updateKonser, deleteKonser } from "../controllers/konserController.js";
+import { getTiket, getTiketById, addTiket, updateTiket, deleteTiket } from "../controllers/tiketController.js";
 
 const router = express.Router();
 

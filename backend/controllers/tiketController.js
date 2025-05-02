@@ -1,4 +1,4 @@
-import Tiket from "../models/tiketModel";
+import Tiket from "../models/tiketModel.js";
 
 export const getTiket = async(req,res) =>{
     try {

@@ -1,4 +1,4 @@
-import Pengunjung from "../models/pengunjungModel";
+import Pengunjung from "../models/pengunjungModel.js";
 
 export const getPengunjung = async(req,res) =>{
     try {

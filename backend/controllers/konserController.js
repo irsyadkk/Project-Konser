@@ -1,4 +1,4 @@
-import Konser from "../models/konserModel";
+import Konser from "../models/konserModel.js";
 
 export const getKonser = async(req,res) =>{
     try {
