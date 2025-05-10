@@ -1,37 +1,46 @@
 import express from "express";
-import { getAdmin, getAdminById, addAdmin, updateAdmin, deleteAdmin  } from "../controllers/adminController.js";
+import { getAdmin, getAdminById, addAdmin, updateAdmin, deleteAdmin, loginHandler, logout } from "../controllers/adminController.js";
 import { getPengunjung, getPengunjungById, addPengunjung, updatePengunjung, deletePengunjung } from "../controllers/pengunjungController.js";
 import { getKonser, getKonserById, addKonser, updateKonser, deleteKonser } from "../controllers/konserController.js";
 import { getTiket, getTiketById, addTiket, updateTiket, deleteTiket } from "../controllers/tiketController.js";
+import { refreshToken } from "../controllers/refreshToken.js";
+import { verifyToken } from "../middleware/verifyToken.js";
 
 const router = express.Router();
 
+//endpoint refresh token
+router.get("/token", refreshToken);
+
+//endpoint auth
+router.post("/login", loginHandler);
+router.delete("/logout", logout);
+
 // ADMINS
-router.get('/admin', getAdmin);
-router.get('/admin/:id', getAdminById);
+router.get('/admin', verifyToken, getAdmin);
+router.get('/admin/:id', verifyToken, getAdminById);
 router.post('/admin', addAdmin);
-router.patch('/admin/:id', updateAdmin);
+router.patch('/admin/:id', verifyToken, updateAdmin);
 router.delete('/admin/:id', deleteAdmin);
 
 // PENGUNJUNG
-router.get('/pengunjung', getPengunjung);
-router.get('/pengunjung/:id', getPengunjungById);
+router.get('/pengunjung', verifyToken, getPengunjung);
+router.get('/pengunjung/:id', verifyToken, getPengunjungById);
 router.post('/pengunjung', addPengunjung);
-router.patch('/pengunjung/:id', updatePengunjung);
+router.patch('/pengunjung/:id', verifyToken, updatePengunjung);
 router.delete('/pengunjung/:id', deletePengunjung);
 
 // KONSER
-router.get('/konser', getKonser);
-router.get('/konser/:id', getKonserById);
+router.get('/konser', verifyToken, getKonser);
+router.get('/konser/:id', verifyToken, getKonserById);
 router.post('/konser', addKonser);
-router.patch('/konser/:id', updateKonser);
+router.patch('/konser/:id', verifyToken, updateKonser);
 router.delete('/konser/:id', deleteKonser);
 
 // TIKET
-router.get('/tiket', getTiket);
-router.get('/tiket/:id', getTiketById);
+router.get('/tiket', verifyToken, getTiket);
+router.get('/tiket/:id', verifyToken, getTiketById);
 router.post('/tiket', addTiket);
-router.patch('/tiket/:id', updateTiket);
+router.patch('/tiket/:id', verifyToken, updateTiket);
 router.delete('/tiket/:id', deleteTiket);
 
 export default router;

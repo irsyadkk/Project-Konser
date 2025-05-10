@@ -4,16 +4,15 @@ import db from "../config/database.js";
 const {DataTypes} = Sequelize;
 
 const Konser = db.define('konser',{
-    nama: DataTypes.STRING,
-    tanggal: DataTypes.STRING,
-    lokasi: DataTypes.STRING,
-    bintangtamu: DataTypes.STRING
+    nama: Sequelize.STRING,
+    tanggal: Sequelize.STRING,
+    lokasi: Sequelize.STRING,
+    bintangtamu: Sequelize.STRING,
+    refresh_token: Sequelize.TEXT
 },{
     freezeTableName:true
 });
 
-export default Konser;
+db.sync().then(() => console.log("Database synced"));
 
-(async() =>{
-    await db.sync();
-})();
+export default Konser;

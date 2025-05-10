@@ -5,20 +5,19 @@ const {DataTypes} = Sequelize;
 
 const Tiket = db.define('tiket',{
     id: {
-        type: DataTypes.INTEGER,
+        type: Sequelize.INTEGER,
         autoIncrement: true,
         primaryKey: true
     },
-    nama: DataTypes.STRING,
-    tanggal: DataTypes.STRING,
-    harga: DataTypes.INTEGER,
-    quota: DataTypes.INTEGER
+    nama: Sequelize.STRING,
+    tanggal: Sequelize.STRING,
+    harga: Sequelize.INTEGER,
+    quota: Sequelize.INTEGER,
+    refresh_token: Sequelize.TEXT
 },{
     freezeTableName:true
 });
 
-export default Tiket;
+db.sync().then(() => console.log("Database synced"));
 
-(async() =>{
-    await db.sync();
-})();
+export default Tiket;

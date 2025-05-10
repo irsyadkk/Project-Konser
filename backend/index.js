@@ -1,11 +1,18 @@
-import express from "express"
-import cors from "cors"
-import route from "./routes/route.js"
+import express from "express";
+import cors from "cors";
+import route from "./routes/route.js";
+import dotenv from "dotenv";
+import cookieParser from "cookie-parser";
 
 const app = express();
+app.set ("view engine", "ejs");
 
-app.use(cors());
+dotenv.config();
+
+app.use(cookieParser());
+app.use(cors({credentials:true, origin: 'http://localhost:3000'}));
 app.use(express.json());
+app.get("/", (req, res) => res.render("index"));
 app.use(route);
 
 app.listen(5000, () => console.log("Connected to server"));

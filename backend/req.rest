@@ -1,0 +1,42 @@
+GET http://localhost:5000/admin
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwibmFtYSI6InRlcyIsImVtYWlsIjoidGVzQHRlcy5jb20iLCJjcmVhdGVkQXQiOiIyMDI1LTA1LTEwVDAyOjQ1OjExLjAwMFoiLCJ1cGRhdGVkQXQiOiIyMDI1LTA1LTEwVDAzOjAxOjM1LjAwMFoiLCJpYXQiOjE3NDY4NDYxMjQsImV4cCI6MTc0Njg0NjQyNH0.IC5Fz3g1k-68FHDrEB20E-2rz1w6nath_yQygsEgrYc
+###
+
+POST http://localhost:5000/admin
+Content-Type: application/json
+
+{
+"nama": "tes",
+"email": "tes@tes.com",
+"pass": "12345"
+}
+
+###
+
+PATCH  http://localhost:5000/admin/1
+Content-Type: application/json
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwibmFtYSI6InRlcyIsImVtYWlsIjoidGVzQHRlcy5jb20iLCJjcmVhdGVkQXQiOiIyMDI1LTA1LTEwVDAyOjQ1OjExLjAwMFoiLCJ1cGRhdGVkQXQiOiIyMDI1LTA1LTEwVDAzOjAxOjM1LjAwMFoiLCJpYXQiOjE3NDY4NDYxMjQsImV4cCI6MTc0Njg0NjQyNH0.IC5Fz3g1k-68FHDrEB20E-2rz1w6nath_yQygsEgrYc
+
+{
+"nama": "test updated", 
+"email": "test@test.com",
+"pass": "test"
+}
+
+###
+
+DELETE http://localhost:5000/admin/0
+
+###
+
+POST http://localhost:5000/login 
+Content-Type: application/json
+
+{
+"email": "tes@tes.com",
+"pass": "12345"
+}
+
+###
+
+DELETE http://localhost:5000/logout

@@ -5,18 +5,18 @@ const {DataTypes} = Sequelize;
 
 const Admin = db.define('admin',{
     id: {
-        type: DataTypes.INTEGER,
+        type: Sequelize.INTEGER,
         autoIncrement: true,
         primaryKey: true
     },
-    nama: DataTypes.STRING,
-    pass: DataTypes.STRING
-},{
+    nama: Sequelize.STRING,
+    email: Sequelize.STRING,
+    pass: Sequelize.STRING,
+    refresh_token: Sequelize.TEXT
+    },{
     freezeTableName:true
-});
+    });
+
+db.sync().then(() => console.log("Database synced"));
 
 export default Admin;
-
-(async() =>{
-    await db.sync();
-})();

@@ -4,15 +4,14 @@ import db from "../config/database.js";
 const {DataTypes} = Sequelize;
 
 const Pengunjung = db.define('pengunjung',{
-    nama: DataTypes.STRING,
-    umur: DataTypes.STRING,
-    email: DataTypes.STRING
+    nama: Sequelize.STRING,
+    umur: Sequelize.STRING,
+    email: Sequelize.STRING,
+    refresh_token: Sequelize.TEXT
 },{
     freezeTableName:true
 });
 
-export default Pengunjung;
+db.sync().then(() => console.log("Database synced"));
 
-(async() =>{
-    await db.sync();
-})();
+export default Pengunjung;
