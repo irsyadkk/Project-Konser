@@ -3,6 +3,7 @@ import { getAdmin, getAdminById, addAdmin, updateAdmin, deleteAdmin, loginHandle
 import { getPengunjung, getPengunjungById, addPengunjung, updatePengunjung, deletePengunjung } from "../controllers/pengunjungController.js";
 import { getKonser, getKonserById, addKonser, updateKonser, deleteKonser } from "../controllers/konserController.js";
 import { getTiket, getTiketById, addTiket, updateTiket, deleteTiket } from "../controllers/tiketController.js";
+import { orderTicket } from "../controllers/orderController.js";
 import { refreshToken } from "../controllers/refreshToken.js";
 import { verifyToken } from "../middleware/verifyToken.js";
 
@@ -42,5 +43,8 @@ router.get('/tiket/:id', verifyToken, getTiketById);
 router.post('/tiket', addTiket);
 router.patch('/tiket/:id', verifyToken, updateTiket);
 router.delete('/tiket/:id', deleteTiket);
+
+// ORDER TIKET
+router.patch('/order/:id', verifyToken, orderTicket, addPengunjung);
 
 export default router;

@@ -158,7 +158,7 @@ export async function loginHandler(req, res){
           const decryptPassword = await bcrypt.compare(pass, admin.pass);
           if(decryptPassword){
               const accessToken = jwt.sign(safeAdminData, process.env.ACCESS_TOKEN_SECRET, {
-                  expiresIn : '5m' 
+                  expiresIn : '1d' 
               });
               const refreshToken = jwt.sign(safeAdminData, process.env.REFRESH_TOKEN_SECRET, {
                   expiresIn : '1d' 

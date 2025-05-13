@@ -43,7 +43,7 @@ export const getKonserById = async(req,res) =>{
 export const addKonser = async(req,res) => {
     try {
         const {nama, tanggal, lokasi, bintangtamu} = req.body;
-        if (!nama || !tanggal || !lokasi ||bintangtamu) {
+        if (!nama || !tanggal || !lokasi || !bintangtamu) {
             const msg = `${
             !nama ? "Nama" : !tanggal ? "Tanggal" : !lokasi ? "Lokasi" : "Bintang Tamu"
             } field cannot be empty !`;
@@ -74,7 +74,7 @@ export const updateKonser = async(req,res) => {
     try {
         const {nama, tanggal, lokasi, bintangtamu} = req.body;
         const ifKonserExist = await Konser.findOne({ where: { id: req.params.id } });
-        if (!nama || !tanggal || !lokasi ||bintangtamu) {
+        if (!nama || !tanggal || !lokasi || !bintangtamu) {
             const msg = `${
             !nama ? "Nama" : !tanggal ? "Tanggal" : !lokasi ? "Lokasi" : "Bintang Tamu"
             } field cannot be empty !`;

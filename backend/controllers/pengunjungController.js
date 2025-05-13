@@ -47,10 +47,10 @@ export const addPengunjung = async(req,res) => {
             const msg = `${
             !nama ? "Nama" : !umur ? "Umur" : "Email"
             } field cannot be empty !`;
+            const error = new Error(msg);
+            error.statusCode = 401;
+            throw error;
         }
-        const error = new Error(msg);
-        error.statusCode = 401;
-        throw error;
         await Pengunjung.create({
         nama: nama,
         umur: umur,
@@ -77,11 +77,10 @@ export const updatePengunjung = async(req,res) => {
             const msg = `${
             !nama ? "Nama" : !umur ? "umur" : "email"
             } field cannot be empty !`;
+            const error = new Error(msg);
+            error.statusCode = 401;
+            throw error;
         }
-        const error = new Error(msg);
-        error.statusCode = 401;
-        throw error;
-
         if (!ifPengunjungExist) {
             const error = new Error("Pengunjung not found !");
             error.statusCode = 400;
@@ -109,7 +108,7 @@ export const updatePengunjung = async(req,res) => {
 export const deletePengunjung = async(req,res) => {
     try {
         const ifPengunjungExist = await Pengunjung.findOne({ where: { id: req.params.id } });
-        if (!ifKonserExist) {
+        if (!ifPengunjungExist) {
             const error = new Error("Pengunjung not found !");
             error.statusCode = 400;
             throw error;
