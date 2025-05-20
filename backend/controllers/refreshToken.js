@@ -16,7 +16,7 @@ export const refreshToken = async(req, res)=>{
         else jwt.verify(refreshToken, process.env.REFRESH_TOKEN_SECRET,(err, decoded)=>{
             if(err) return res.sendStatus(403);
             console.log("sudah lewat 403 ke dua di controller")
-            const adminPlain = admin.toJSON(); // Konversi ke object
+            const adminPlain = admin.toJSON();
             const { pass: _, refresh_token: __, ...safeAdminData } = adminPlain;
             const accessToken = jwt.sign(safeAdminData,   process.env.ACCESS_TOKEN_SECRET,{
                 expiresIn: '5m'

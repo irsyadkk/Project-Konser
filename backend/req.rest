@@ -22,7 +22,7 @@
 
 # ###
 // REGISTER
-POST http://localhost:5000/register
+POST https://api-konser-559917148272.us-central1.run.app/register
 Content-Type: application/json
 
 {
@@ -34,7 +34,7 @@ Content-Type: application/json
 ###
 
 // LOGIN
-POST http://localhost:5000/login 
+POST https://api-konser-559917148272.us-central1.run.app/login 
 Content-Type: application/json
 
 {
@@ -45,12 +45,12 @@ Content-Type: application/json
 ###
 
 // LOGOUT
-DELETE http://localhost:5000/logout
+DELETE https://api-konser-559917148272.us-central1.run.app/logout
 
 ###
 
 // ADD TIKET
-POST http://localhost:5000/tiket
+POST https://api-konser-559917148272.us-central1.run.app/tiket
 Content-Type: application/json
 
 {
@@ -63,19 +63,19 @@ Content-Type: application/json
 ###
 
 // GET TIKET
-GET http://localhost:5000/tiket
-Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwibmFtYSI6InVzZXIiLCJlbWFpbCI6InVzZXJAZ21haWwuY29tIiwiY3JlYXRlZEF0IjoiMjAyNS0wNS0xOVQxNzowNzozNS4wMDBaIiwidXBkYXRlZEF0IjoiMjAyNS0wNS0yMFQwMTo0NzoyMi4wMDBaIiwiaWF0IjoxNzQ3NzA1ODI2LCJleHAiOjE3NDc3OTIyMjZ9._bwHsU_1k-ArmjSx2ba2PX5cEZT0Y3FF3q0HfhUNueA
+GET https://api-konser-559917148272.us-central1.run.app/tiket
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwibmFtYSI6InVzZXIiLCJlbWFpbCI6InVzZXJAZ21haWwuY29tIiwiY3JlYXRlZEF0IjoiMjAyNS0wNS0yMFQwMzo1Nzo0OC4wMDBaIiwidXBkYXRlZEF0IjoiMjAyNS0wNS0yMFQwMzo1Nzo0OC4wMDBaIiwiaWF0IjoxNzQ3NzEzNDcxLCJleHAiOjE3NDc3OTk4NzF9.S4UYuanAJtGaBRIMSJ2-QTaI9T5NdmXPhKjDIipKBa0
 
 ###
 
 // GET TIKET BY ID
-GET http://localhost:5000/tiket/1
+GET https://api-konser-559917148272.us-central1.run.app/tiket/1
 Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwibmFtYSI6InVzZXIiLCJlbWFpbCI6InVzZXJAZ21haWwuY29tIiwiY3JlYXRlZEF0IjoiMjAyNS0wNS0xOVQxNzowNzozNS4wMDBaIiwidXBkYXRlZEF0IjoiMjAyNS0wNS0yMFQwMTo0NzoyMi4wMDBaIiwiaWF0IjoxNzQ3NzA1ODI2LCJleHAiOjE3NDc3OTIyMjZ9._bwHsU_1k-ArmjSx2ba2PX5cEZT0Y3FF3q0HfhUNueA
 
 ###
 
 // UPDATE TIKET BY ID
-PATCH  http://localhost:5000/tiket/1
+PATCH  https://api-konser-559917148272.us-central1.run.app/tiket/1
 Content-Type: application/json
 Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwibmFtYSI6InRlcyIsImVtYWlsIjoidGVzQHRlcy5jb20iLCJjcmVhdGVkQXQiOiIyMDI1LTA1LTEyVDA4OjI0OjQ1LjAwMFoiLCJ1cGRhdGVkQXQiOiIyMDI1LTA1LTEyVDA4OjMxOjAyLjAwMFoiLCJpYXQiOjE3NDcwNjM3MTUsImV4cCI6MTc0NzA2NDAxNX0.CDXK3KN7UWVDEedYB4SLhNpOTmhKVgks_2SuBDGe24k
 
@@ -94,9 +94,9 @@ DELETE http://localhost:5000/tiket/1
 ###
 
 // ORDER TIKET
-PATCH  http://localhost:5000/order/3
+PATCH  https://api-konser-559917148272.us-central1.run.app/order/3
 Content-Type: application/json
-Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwibmFtYSI6InRlcyIsImVtYWlsIjoidGVzQHRlcy5jb20iLCJjcmVhdGVkQXQiOiIyMDI1LTA1LTEyVDA4OjI0OjQ1LjAwMFoiLCJ1cGRhdGVkQXQiOiIyMDI1LTA1LTEyVDE2OjEwOjI2LjAwMFoiLCJpYXQiOjE3NDcwNjcxNTIsImV4cCI6MTc0NzE1MzU1Mn0.NPFg-1S2Ta0x6u6oVSHhSyjJu0hFgOBBw7HSP6vfv7g
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwibmFtYSI6InVzZXIiLCJlbWFpbCI6InVzZXJAZ21haWwuY29tIiwiY3JlYXRlZEF0IjoiMjAyNS0wNS0yMFQwMzo1Nzo0OC4wMDBaIiwidXBkYXRlZEF0IjoiMjAyNS0wNS0yMFQwMzo1Nzo0OC4wMDBaIiwiaWF0IjoxNzQ3NzEzNDcxLCJleHAiOjE3NDc3OTk4NzF9.S4UYuanAJtGaBRIMSJ2-QTaI9T5NdmXPhKjDIipKBa0
 
 {
     "nama": "popo",
@@ -108,23 +108,24 @@ Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwibmFtYSI6I
 ###
 
 // ADD KONSER
-POST http://localhost:5000/konser
+POST https://api-konser-559917148272.us-central1.run.app/konser
 Content-Type: application/json
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwibmFtYSI6InVzZXIiLCJlbWFpbCI6InVzZXJAZ21haWwuY29tIiwiY3JlYXRlZEF0IjoiMjAyNS0wNS0yMFQwMzo1Nzo0OC4wMDBaIiwidXBkYXRlZEF0IjoiMjAyNS0wNS0yMFQwMzo1Nzo0OC4wMDBaIiwiaWF0IjoxNzQ3NzEzNDcxLCJleHAiOjE3NDc3OTk4NzF9.S4UYuanAJtGaBRIMSJ2-QTaI9T5NdmXPhKjDIipKBa0
 
 {
-"nama": ".Feast tiket",
-"tanggal": "20 maret 2025",
-"lokasi": "Jakarta",
-"bintangtamu": ".Feast",
-"harga": 150000,
-"quota": 50
+"nama": "Gourgon Fest",
+"tanggal": "20 Desember 2025",
+"lokasi": "Bandung",
+"bintangtamu": "???",
+"harga": 200000,
+"quota": 40
 }
 
 ###
 
 // GET KONSER
-GET http://localhost:5000/konser
-Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwibmFtYSI6InVzZXIiLCJlbWFpbCI6InVzZXJAZ21haWwuY29tIiwiY3JlYXRlZEF0IjoiMjAyNS0wNS0xOVQxNzowNzozNS4wMDBaIiwidXBkYXRlZEF0IjoiMjAyNS0wNS0xOVQxNzowNzozNS4wMDBaIiwiaWF0IjoxNzQ3Njc0NDcwLCJleHAiOjE3NDc3NjA4NzB9.3Cm5eyXYyLr51JXNfYv1wzywmuqbAwyR73W4CfQc_cw
+GET https://api-konser-559917148272.us-central1.run.app/konser
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwibmFtYSI6InVzZXIiLCJlbWFpbCI6InVzZXJAZ21haWwuY29tIiwiY3JlYXRlZEF0IjoiMjAyNS0wNS0yMFQwMzo1Nzo0OC4wMDBaIiwidXBkYXRlZEF0IjoiMjAyNS0wNS0yMFQwMzo1Nzo0OC4wMDBaIiwiaWF0IjoxNzQ3NzEzNDcxLCJleHAiOjE3NDc3OTk4NzF9.S4UYuanAJtGaBRIMSJ2-QTaI9T5NdmXPhKjDIipKBa0
 
 ###
 
