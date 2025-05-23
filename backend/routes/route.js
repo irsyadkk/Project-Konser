@@ -44,7 +44,7 @@ router.post("/login", loginHandler);
 router.delete("/logout", logout);
 
 // ADMINS
-// router.get('/admin', verifyToken, getAdmin);
+router.get("/admin", getAdmin);
 // router.get('/admin/:id', verifyToken, getAdminById);
 // router.patch('/admin/:id', verifyToken, updateAdmin);
 // router.delete('/admin/:id', verifyToken, deleteAdmin);
