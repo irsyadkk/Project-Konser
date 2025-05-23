@@ -50,7 +50,7 @@ router.delete("/logout", logout);
 // router.delete('/admin/:id', verifyToken, deleteAdmin);
 
 // PENGUNJUNG
-router.get("/pengunjung", verifyToken, getPengunjung);
+router.get("/pengunjung", getPengunjung);
 router.get("/pengunjung/:id", verifyToken, getPengunjungById);
 router.post("/pengunjung", verifyToken, addPengunjung);
 router.patch("/pengunjung/:id", verifyToken, updatePengunjung);
