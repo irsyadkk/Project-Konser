@@ -50,21 +50,21 @@ router.get("/admin", getAdmin);
 // router.delete('/admin/:id', verifyToken, deleteAdmin);
 
 // PENGUNJUNG
-router.get("/pengunjung", getPengunjung);
+router.get("/pengunjung", verifyToken, getPengunjung);
 router.get("/pengunjung/:id", verifyToken, getPengunjungById);
 router.post("/pengunjung", verifyToken, addPengunjung);
 router.patch("/pengunjung/:id", verifyToken, updatePengunjung);
 router.delete("/pengunjung/:id", verifyToken, deletePengunjung);
 
 // KONSER
-router.get("/konser", getKonser);
+router.get("/konser", verifyToken, getKonser);
 router.get("/konser/:id", verifyToken, getKonserById);
 router.post("/konser", verifyToken, addKonser);
 router.patch("/konser/:id", verifyToken, updateKonser);
 router.delete("/konser/:id", verifyToken, deleteKonser);
 
 // TIKET
-router.get("/tiket", getTiket);
+router.get("/tiket", verifyToken, getTiket);
 router.get("/tiket/:id", verifyToken, getTiketById);
 router.post("/tiket", verifyToken, addTiket);
 router.patch("/tiket/:id", verifyToken, updateTiket);

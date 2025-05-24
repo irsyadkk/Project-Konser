@@ -26,8 +26,8 @@ POST https://api-konser-559917148272.us-central1.run.app/register
 Content-Type: application/json
 
 {
-"nama": "user",
-"email": "user@gmail.com",
+"nama": "Gimmy",
+"email": "gimmy@gmail.com",
 "pass": "12345"
 }
 
@@ -110,15 +110,15 @@ Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwibmFtYSI6I
 // ADD KONSER
 POST https://api-konser-559917148272.us-central1.run.app/konser
 Content-Type: application/json
-Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwibmFtYSI6InVzZXIiLCJlbWFpbCI6InVzZXJAZ21haWwuY29tIiwiY3JlYXRlZEF0IjoiMjAyNS0wNS0yMFQwMzo1Nzo0OC4wMDBaIiwidXBkYXRlZEF0IjoiMjAyNS0wNS0yMFQwMzo1Nzo0OC4wMDBaIiwiaWF0IjoxNzQ3NzEzNDcxLCJleHAiOjE3NDc3OTk4NzF9.S4UYuanAJtGaBRIMSJ2-QTaI9T5NdmXPhKjDIipKBa0
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwibmFtYSI6InVzZXIiLCJlbWFpbCI6InVzZXJAZ21haWwuY29tIiwiY3JlYXRlZEF0IjoiMjAyNS0wNS0yMFQwOTozMjozNi4wMDBaIiwidXBkYXRlZEF0IjoiMjAyNS0wNS0yMVQwNjozMDoyNy4wMDBaIiwiaWF0IjoxNzQ3OTg2NDM4LCJleHAiOjE3NDgwNzI4Mzh9.HCW_0keJBBSB5PBjM2KVPM3GbDfBeRvfyMFuzWRz9Ss
 
 {
-"nama": "Gourgon Fest",
-"tanggal": "20 Desember 2025",
-"lokasi": "Bandung",
-"bintangtamu": "???",
-"harga": 200000,
-"quota": 40
+"nama": "Kareem Fest",
+"tanggal": "30 Mei 2026",
+"lokasi": "Jakarta",
+"bintangtamu": "PSY feat. Snoop Dogg",
+"harga": 400000,
+"quota": 1500
 }
 
 ###
