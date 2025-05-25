@@ -45,11 +45,12 @@ export async function orderTicket(req, res) {
         where: { id: req.params.id },
       }
     );
+    const namaTiket = tiket.nama;
     await Pengunjung.create({
       nama: nama,
       umur: umur,
       email: email,
-      tiket: tiket.nama,
+      tiket: namaTiket,
     });
     res.status(200).json({
       status: "Success",
