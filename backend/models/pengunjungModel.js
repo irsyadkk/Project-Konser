@@ -8,7 +8,6 @@ const Pengunjung = db.define(
     umur: Sequelize.STRING,
     email: Sequelize.STRING,
     tiket: Sequelize.STRING,
-    refresh_token: Sequelize.TEXT,
   },
   {
     freezeTableName: true,
