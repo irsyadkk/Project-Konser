@@ -58,6 +58,17 @@ export const addAdmin = async (req, res) => {
       error.statusCode = 401;
       throw error;
     }
+
+    const existingAdmin = await Admin.findOne({
+      where: { email: email },
+    });
+
+    if (existingAdmin) {
+      const error = new Error("Email Sudah Terdaftar !");
+      error.statusCode = 400;
+      throw error;
+    }
+
     const encryptedpass = await bcrypt.hash(pass, 5);
     await Admin.create({
       nama: nama,
