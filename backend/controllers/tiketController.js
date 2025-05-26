@@ -95,20 +95,10 @@ export const updateTiket = async (req, res) => {
         where: { id: req.params.id },
       }
     );
-    z;
-    await Konser.update(
-      {
-        harga: harga,
-        quota: quota,
-      },
-      {
-        where: { id: req.params.id },
-      }
-    );
 
     res.status(200).json({
       status: "Success",
-      message: "Tiket & Konser Updated",
+      message: "Tiket Updated",
     });
   } catch (error) {
     res.status(error.statusCode || 500).json({
