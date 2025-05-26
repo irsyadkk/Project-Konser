@@ -5,7 +5,7 @@ const Pengunjung = db.define(
   "pengunjung",
   {
     nama: Sequelize.STRING,
-    umur: Sequelize.STRING,
+    umur: Sequelize.INTEGER,
     email: Sequelize.STRING,
     tiket: Sequelize.STRING,
   },
