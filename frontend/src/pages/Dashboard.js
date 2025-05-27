@@ -2,10 +2,11 @@ import { useState, useEffect } from "react";
 import { BASE_URL } from "../utils/utils.js";
 import axios from "../api/AxiosInstance.js";
 import useAuth from "../auth/UseAuth.js";
-import { Link, useNavigate, useLocation } from "react-router-dom";
+import { useNavigate, useLocation } from "react-router-dom";
+import { FaUserCircle } from "react-icons/fa";
 
 function Dashboard() {
-  const { accessToken, logout } = useAuth();
+  const { accessToken } = useAuth();
   const [konserList, setKonserList] = useState([]);
   const [filteredKonser, setFilteredKonser] = useState([]);
   const [searchQuery, setSearchQuery] = useState("");
@@ -54,10 +55,6 @@ function Dashboard() {
     navigate(`/dashboard/${konser.id}`);
   };
 
-  const handleLogout = async () => {
-    await logout();
-    navigate("/login");
-  };
   const handleProfile = async () => {
     navigate("/profile");
   };
@@ -118,14 +115,18 @@ function Dashboard() {
 
         <div className="navbar-end">
           <div className="navbar-item">
-            <button onClick={handleLogout} className="button is-danger">
-              Logout
+            <button
+              onClick={handleProfile}
+              className="button is-dark"
+              style={{
+                background: "transparent",
+                border: "none",
+                cursor: "pointer",
+                padding: 0,
+              }}
+            >
+              <FaUserCircle size={28} color="white" />
             </button>
-            <div className="navbar-item">
-              <button onClick={handleProfile} className="button is-danger">
-                Profile
-              </button>
-            </div>
           </div>
         </div>
       </nav>

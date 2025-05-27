@@ -6,7 +6,7 @@ import useAuth from "../auth/UseAuth.js";
 
 function Detail() {
   const { id } = useParams();
-  const { accessToken, logout } = useAuth();
+  const { accessToken } = useAuth();
   const [konser, setKonser] = useState(null);
   const [tiket, setTiket] = useState(null);
   const [loading, setLoading] = useState(true);

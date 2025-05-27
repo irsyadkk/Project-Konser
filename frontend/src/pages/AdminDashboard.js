@@ -3,9 +3,10 @@ import { Link, useNavigate } from "react-router-dom";
 import useAuth from "../auth/UseAuth";
 import axios from "../api/AxiosInstance";
 import { BASE_URL } from "../utils/utils.js";
+import { FaSignOutAlt } from "react-icons/fa";
 
 const AdminDashboard = () => {
-  const { accessToken, refreshAccessToken, logout } = useAuth();
+  const { accessToken, logout } = useAuth();
   const navigate = useNavigate();
   const [selectedTable, setSelectedTable] = useState("user");
   const [UsersData, setUsersData] = useState([]);
@@ -104,8 +105,17 @@ const AdminDashboard = () => {
 
         <div className="navbar-end">
           <div className="navbar-item">
-            <button onClick={handleLogout} className="button is-danger">
-              Logout
+            <button
+              onClick={handleLogout}
+              className="button is-dark"
+              style={{
+                background: "transparent",
+                border: "none",
+                cursor: "pointer",
+                padding: 0,
+              }}
+            >
+              <FaSignOutAlt size={28} color="red" />
             </button>
           </div>
         </div>

@@ -3,10 +3,12 @@ import useAuth from "../auth/UseAuth.js";
 import axios from "../api/AxiosInstance.js";
 import { BASE_URL } from "../utils/utils.js";
 import { useNavigate } from "react-router-dom";
+import { FaSignOutAlt, FaUserCircle } from "react-icons/fa";
 
 function ProfilePage() {
   const { accessToken, logout } = useAuth();
   const [email, setEmail] = useState("");
+  const [userName, setUserName] = useState("");
   const [tiketList, setTiketList] = useState([]);
   const [konserMap, setKonserMap] = useState({});
   const [loading, setLoading] = useState(true);
@@ -15,8 +17,10 @@ function ProfilePage() {
   const fetchProfile = async () => {
     try {
       const emailLocal = localStorage.getItem("email");
+      const userNameLocal = localStorage.getItem("userName");
       setEmail(emailLocal || "");
-      if (!emailLocal) return;
+      setUserName(userNameLocal || "");
+      if (!emailLocal || userName) return;
 
       const res = await axios.get(`${BASE_URL}/pengunjung/${emailLocal}`, {
         headers: { Authorization: `Bearer ${accessToken}` },
@@ -90,7 +94,7 @@ function ProfilePage() {
           onClick={() => navigate(-1)}
           style={{
             fontWeight: "bold",
-            fontSize: "2.0rem",
+            fontSize: "2rem",
             color: "white",
             background: "none",
             border: "none",
@@ -102,10 +106,15 @@ function ProfilePage() {
 
         <button
           onClick={handleLogout}
-          className="button is-danger"
-          style={{ marginLeft: "auto" }}
+          className="button is-dark"
+          style={{
+            background: "transparent",
+            border: "none",
+            cursor: "pointer",
+            padding: 0,
+          }}
         >
-          Logout
+          <FaSignOutAlt size={28} color="red" />
         </button>
       </nav>
 
@@ -127,21 +136,29 @@ function ProfilePage() {
             width: "100%",
             maxWidth: "400px",
             color: "white",
+            textAlign: "center",
           }}
         >
           <h2
             style={{
               fontSize: "1.5rem",
               fontWeight: "700",
-              textAlign: "center",
               marginBottom: "1.5rem",
             }}
           >
             Profil Saya
           </h2>
 
-          <div style={{ marginBottom: "1rem" }}>
-            <strong>Email: </strong>
+          <div>
+            <FaUserCircle size={100} color="white" />
+          </div>
+          <div style={{ fontSize: "1.5rem" }}>
+            {userName || (
+              <span style={{ color: "#999" }}>(tidak ditemukan)</span>
+            )}
+          </div>
+
+          <div style={{ marginBottom: "1rem", fontSize: "1rem" }}>
             {email || <span style={{ color: "#999" }}>(tidak ditemukan)</span>}
           </div>
 
@@ -152,7 +169,13 @@ function ProfilePage() {
             {loading ? (
               <p style={{ color: "#bbb" }}>Loading...</p>
             ) : tiketList.length > 0 ? (
-              <ul style={{ listStyleType: "disc", paddingLeft: "1.5rem" }}>
+              <ul
+                style={{
+                  listStyleType: "disc",
+                  paddingLeft: "1.5rem",
+                  textAlign: "left",
+                }}
+              >
                 {tiketList.map((tiket, idx) => {
                   const konser = konserMap[tiket] || {};
                   return (
