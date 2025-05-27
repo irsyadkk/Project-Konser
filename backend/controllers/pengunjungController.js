@@ -44,7 +44,7 @@ export const getPengunjungById = async (req, res) => {
 //GET PENGUNJUNG BY EMAIL
 export async function getPengunjungByEmail(req, res) {
   try {
-    const pengunjung = await Pengunjung.findOne({
+    const pengunjung = await Pengunjung.findAll({
       where: { email: req.params.email },
     });
     if (!pengunjung) {

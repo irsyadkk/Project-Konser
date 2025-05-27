@@ -19,19 +19,14 @@ function ProfilePage() {
         setEmail(emailLocal || "");
         if (!emailLocal) return;
 
-        // Ambil data user
-        await axios.get(`${BASE_URL}/users/${emailLocal}`, {
+        const res = await axios.get(`${BASE_URL}/pengunjung/${emailLocal}`, {
           headers: { Authorization: `Bearer ${accessToken}` },
         });
 
-        // Ambil tiket user
-        const pengunjungRes = await axios.get(`${BASE_URL}/pengunjung`, {
-          headers: { Authorization: `Bearer ${accessToken}` },
-        });
-        const tiketSaya = (pengunjungRes.data.data || []).filter(
-          (p) => p.email === emailLocal
-        );
-        setTiketList(tiketSaya);
+        // Transform tiket menjadi array (meskipun hanya 1 tiket)
+        const tiket = res.data.data.tiket;
+        const tiketArray = tiket ? [tiket] : [];
+        setTiketList(tiketArray);
 
         const konserRes = await axios.get(`${BASE_URL}/konser`, {
           headers: { Authorization: `Bearer ${accessToken}` },
