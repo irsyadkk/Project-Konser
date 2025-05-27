@@ -12,6 +12,7 @@ import {
 import {
   getPengunjung,
   getPengunjungById,
+  getPengunjungByEmail,
   addPengunjung,
   updatePengunjung,
   deletePengunjung,
@@ -53,7 +54,7 @@ router.get("/users/:email", verifyToken, getUserByEmail);
 
 // PENGUNJUNG
 router.get("/pengunjung", verifyToken, getPengunjung);
-router.get("/pengunjung/:id", verifyToken, getPengunjungById);
+router.get("/pengunjung/:email", verifyToken, getPengunjungByEmail);
 //router.post("/pengunjung", verifyToken, addPengunjung);
 //router.patch("/pengunjung/:id", verifyToken, updatePengunjung);
 router.delete("/pengunjung/:id", verifyToken, deletePengunjung);
