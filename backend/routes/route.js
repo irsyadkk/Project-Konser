@@ -55,7 +55,7 @@ router.get("/users/:email", verifyToken, getUserByEmail);
 router.get("/pengunjung", verifyToken, getPengunjung);
 router.get("/pengunjung/:id", verifyToken, getPengunjungById);
 //router.post("/pengunjung", verifyToken, addPengunjung);
-router.patch("/pengunjung/:id", verifyToken, updatePengunjung);
+//router.patch("/pengunjung/:id", verifyToken, updatePengunjung);
 router.delete("/pengunjung/:id", verifyToken, deletePengunjung);
 
 // KONSER

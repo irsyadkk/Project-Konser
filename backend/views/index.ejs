@@ -24,23 +24,89 @@
         </tr>
         <tr>
           <td>GET</td>
-          <td>/users/:id</td>
-          <td>Mengambil data dari tabel users berdasarkan id.</td>
+          <td>/users/:email</td>
+          <td>Mengambil data dari tabel users berdasarkan email.</td>
+        </tr>
+        <tr>
+          <td>GET</td>
+          <td>/pengunjung</td>
+          <td>Mengambil seluruh data dari tabel pengunjung.</td>
+        </tr>
+        <tr>
+          <td>GET</td>
+          <td>/pengunjung/:id</td>
+          <td>Mengambil data dari tabel pengunjung berdasarkan id.</td>
+        </tr>
+        <tr>
+          <td>GET</td>
+          <td>/konser</td>
+          <td>Mengambil seluruh data dari tabel konser.</td>
+        </tr>
+        <tr>
+          <td>GET</td>
+          <td>/konser/:id</td>
+          <td>Mengambil data dari tabel konser berdasarkan id.</td>
+        </tr>
+        <tr>
+          <td>GET</td>
+          <td>/tiket</td>
+          <td>Mengambil seluruh data dari tabel tiket.</td>
+        </tr>
+        <tr>
+          <td>GET</td>
+          <td>/tiket/:id</td>
+          <td>Mengambil data dari tabel tiket berdasarkan id.</td>
         </tr>
         <tr>
           <td>POST</td>
-          <td>/add-user</td>
-          <td>Menambahkan data baru ke tabel users.</td>
+          <td>/register</td>
+          <td>Menambahkan user baru ke tabel users.</td>
         </tr>
         <tr>
-          <td>PUT</td>
-          <td>/edit-user/:id</td>
-          <td>Mengubah data dari tabel users berdasarkan id.</td>
+          <td>POST</td>
+          <td>/login</td>
+          <td>Verifikasi user ke tabel users untuk mengakses API.</td>
+        </tr>
+        <tr>
+          <td>POST</td>
+          <td>/konser</td>
+          <td>Menambahkan data baru ke tabel konser.</td>
+        </tr>
+        <tr>
+          <td>PATCH</td>
+          <td>/konser/:id</td>
+          <td>
+            Mengubah data dari tabel konser berdasarkan id serta mengubah data
+            dari tabel tiket & pengunjung berdasarkan nama.
+          </td>
+        </tr>
+        <tr>
+          <td>PATCH</td>
+          <td>/tiket/:id</td>
+          <td>Mengubah data dari tabel tiket berdasarkan id.</td>
+        </tr>
+        <tr>
+          <td>PATCH</td>
+          <td>/order/:id</td>
+          <td>
+            Menambahkan data ke tabel pengunjung dan Mengubah data dari tabel
+            tiket berdasarkan id.
+          </td>
         </tr>
         <tr>
           <td>DELETE</td>
-          <td>/delete-user/:id</td>
-          <td>Menghapus data dari tabel users berdasarkan id.</td>
+          <td>/logout</td>
+          <td>Menghapus token dari tabel users berdasarkan token saat ini</td>
+        </tr>
+        <tr>
+          <td>DELETE</td>
+          <td>/pengunjung/:id</td>
+          <td>Menghapus data dari tabel pengunjung berdasarkan id</td>
+        </tr>
+        <tr>
+          <td>DELETE</td>
+          <td>/konser/:id</td>
+          <td>Menghapus data dari tabel konser berdasarkan id</td>
         </tr>
       </tbody>
     </table>
