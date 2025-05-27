@@ -17,7 +17,7 @@ const LoginPage = () => {
       const result = await login(email, pass);
       if (result) {
         if (email === "admin@gmail.com") {
-          navigate("/admin-dashboard", { state: { email: email } });
+          navigate("/admin-dashboard");
         } else {
           navigate("/dashboard", { state: { email: email } });
         }

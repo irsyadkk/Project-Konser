@@ -44,11 +44,11 @@ const AdminDashboard = () => {
   };
 
   const filteredUsers = UsersData.filter((user) =>
-    user.nama.toLowerCase().includes(searchTerm.toLowerCase())
+    user.email.toLowerCase().includes(searchTerm.toLowerCase())
   );
 
   const filteredPengunjung = pengunjungData.filter((pengunjung) =>
-    pengunjung.nama.toLowerCase().includes(searchTerm.toLowerCase())
+    pengunjung.email.toLowerCase().includes(searchTerm.toLowerCase())
   );
 
   useEffect(() => {
@@ -69,9 +69,8 @@ const AdminDashboard = () => {
           </span>
         </div>
 
-        {/* Tambahan navbar-start */}
         <div className="navbar-start">
-          <Link to="/admin-dashboard" className="navbar-item">
+          <Link to="" className="navbar-item">
             User & Pengguna
           </Link>
           <Link to="/AdminKonser" className="navbar-item">
@@ -100,7 +99,7 @@ const AdminDashboard = () => {
                   <button
                     onClick={() => setSelectedTable("user")}
                     className={`button ${
-                      selectedTable === "user" ? "is-info" : "is-light"
+                      selectedTable === "user" ? "is-info" : "is-dark"
                     }`}
                   >
                     Tabel User
@@ -108,7 +107,7 @@ const AdminDashboard = () => {
                   <button
                     onClick={() => setSelectedTable("pengunjung")}
                     className={`button ${
-                      selectedTable === "pengunjung" ? "is-info" : "is-light"
+                      selectedTable === "pengunjung" ? "is-info" : "is-dark"
                     }`}
                   >
                     Tabel Pengunjung
