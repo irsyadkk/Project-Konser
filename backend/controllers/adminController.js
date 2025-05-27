@@ -188,7 +188,7 @@ export async function loginHandler(req, res) {
           }
         );
         res.cookie("refreshToken", refreshToken, {
-          httpOnly: false,
+          httpOnly: true,
           sameSite: "None",
           maxAge: 24 * 60 * 60 * 1000,
           secure: true,
