@@ -57,7 +57,28 @@ function Dashboard() {
   };
 
   return (
-    <>
+    <div
+      style={{
+        position: "fixed",
+        top: 0,
+        left: 0,
+        width: "100%",
+        height: "100vh",
+        display: "flex",
+        flexDirection: "column",
+        alignItems: "stretch",
+        justifyContent: "flex-start",
+        backgroundImage:
+          'url("https://storage.googleapis.com/project-storage-konser/images/konser.png")',
+        backgroundSize: "cover",
+        backgroundPosition: "center",
+        backgroundRepeat: "no-repeat",
+        margin: 0,
+        padding: 0,
+        boxSizing: "border-box",
+        overflowY: "auto", // supaya konten scrollable jika tinggi melebihi viewport
+      }}
+    >
       <nav
         className="navbar is-dark-grey"
         role="navigation"
@@ -78,7 +99,7 @@ function Dashboard() {
         </div>
       </nav>
 
-      <section className="section">
+      <section className="section" style={{ flexGrow: 1 }}>
         <div className="container">
           {konserList.length > 0 ? (
             <div className="columns is-multiline">
@@ -125,7 +146,7 @@ function Dashboard() {
           )}
         </div>
       </section>
-    </>
+    </div>
   );
 }
 

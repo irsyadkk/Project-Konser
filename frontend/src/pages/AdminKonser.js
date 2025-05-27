@@ -50,6 +50,7 @@ function AdminKonser() {
       });
     }
   };
+
   const handleUpdateKonser = async (e) => {
     e.preventDefault();
     if (!accessToken) {
@@ -76,6 +77,18 @@ function AdminKonser() {
     } catch (error) {
       console.error("Error updating tiket:", error);
       alert(error.response?.data?.message || "Gagal mengupdate tiket");
+    }
+  };
+
+  const handleDeleteKonser = async (id) => {
+    try {
+      const response = await axios.delete(`${BASE_URL}/konser/${id}`, {
+        headers: { Authorization: `Bearer ${accessToken}` },
+      });
+      fetchKonser();
+    } catch (error) {
+      console.error("Error delete konser:", error);
+      alert(error.response?.data?.message || "Gagal Menghapus konser");
     }
   };
 
@@ -117,7 +130,28 @@ function AdminKonser() {
   };
 
   return (
-    <>
+    <div
+      style={{
+        position: "fixed",
+        top: 0,
+        left: 0,
+        width: "100%",
+        height: "100vh",
+        display: "flex",
+        flexDirection: "column",
+        alignItems: "stretch",
+        justifyContent: "flex-start",
+        backgroundImage:
+          'url("https://storage.googleapis.com/project-storage-konser/images/konser.png")',
+        backgroundSize: "cover",
+        backgroundPosition: "center",
+        backgroundRepeat: "no-repeat",
+        margin: 0,
+        padding: 0,
+        boxSizing: "border-box",
+        overflowY: "auto",
+      }}
+    >
       <nav
         className="navbar is-dark-grey"
         role="navigation"
@@ -150,7 +184,7 @@ function AdminKonser() {
         </div>
       </nav>
 
-      <section className="section">
+      <section className="section" style={{ flexGrow: 1 }}>
         <div className="container box">
           <h2 className="title is-4">Tambah Konser Baru</h2>
           <form onSubmit={handleAddKonser}>
@@ -312,6 +346,12 @@ function AdminKonser() {
                       >
                         Edit
                       </button>
+                      <button
+                        onClick={() => handleDeleteKonser(konser.id)}
+                        className="button is-warning is-small"
+                      >
+                        Delete
+                      </button>
                     </td>
                   </tr>
                 ))}
@@ -369,7 +409,7 @@ function AdminKonser() {
                   <div className="control">
                     <input
                       type="text"
-                      name="bintang"
+                      name="bintangtamu"
                       value={editingKonser.bintangtamu}
                       onChange={handleInputChange}
                       className="input"
@@ -420,7 +460,7 @@ function AdminKonser() {
           </div>
         </div>
       )}
-    </>
+    </div>
   );
 }
 

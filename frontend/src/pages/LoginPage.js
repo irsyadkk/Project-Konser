@@ -32,14 +32,38 @@ const LoginPage = () => {
 
   return (
     <div
-      className="is-flex is-justify-content-center is-align-items-center"
-      style={{ height: "100vh", backgroundColor: "#1a1a1a", color: "white" }}
+      style={{
+        position: "fixed",
+        top: 0,
+        left: 0,
+        width: "100%",
+        height: "100vh",
+        display: "flex",
+        alignItems: "center",
+        justifyContent: "center",
+        backgroundImage:
+          'url("https://storage.googleapis.com/project-storage-konser/images/konser.png")',
+        backgroundSize: "cover",
+        backgroundPosition: "center",
+        backgroundRepeat: "no-repeat",
+        margin: 0,
+        padding: 0,
+        boxSizing: "border-box",
+      }}
     >
       <div
-        className="box"
-        style={{ width: "320px", backgroundColor: "#2c2c2c" }}
+        style={{
+          width: "320px",
+          backgroundColor: "rgba(44, 44, 44, 0.85)",
+          padding: "2rem",
+          borderRadius: "8px",
+          boxShadow: "0 4px 12px rgba(0,0,0,0.3)",
+          color: "white",
+          display: "flex",
+          flexDirection: "column",
+        }}
       >
-        <h2 className="title has-text-white has-text-centered">Log In</h2>
+        <h2 className="title has-text-white has-text-centered mb-6">Log In</h2>
         <input
           className="input mb-3"
           type="text"
@@ -60,7 +84,8 @@ const LoginPage = () => {
         >
           Login
         </button>
-        <p className="has-text-centered">
+        {error && <p className="has-text-danger has-text-centered">{error}</p>}
+        <p className="has-text-centered mt-4">
           Belum Punya Akun?{" "}
           <Link to="/register" className="has-text-link">
             Daftar

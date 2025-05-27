@@ -57,7 +57,28 @@ const AdminDashboard = () => {
   }, [accessToken]);
 
   return (
-    <div>
+    <div
+      style={{
+        position: "fixed",
+        top: 0,
+        left: 0,
+        width: "100%",
+        height: "100vh",
+        display: "flex",
+        flexDirection: "column",
+        alignItems: "stretch",
+        justifyContent: "flex-start",
+        backgroundImage:
+          'url("https://storage.googleapis.com/project-storage-konser/images/konser.png")',
+        backgroundSize: "cover",
+        backgroundPosition: "center",
+        backgroundRepeat: "no-repeat",
+        margin: 0,
+        padding: 0,
+        boxSizing: "border-box",
+        overflowY: "auto",
+      }}
+    >
       <nav
         className="navbar is-dark-grey"
         role="navigation"
@@ -90,7 +111,7 @@ const AdminDashboard = () => {
         </div>
       </nav>
 
-      <div className="section">
+      <div className="section" style={{ flexGrow: 1 }}>
         <div className="container">
           <div className="box">
             <div className="level mb-4">

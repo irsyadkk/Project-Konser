@@ -75,7 +75,28 @@ function AdminTiket() {
   };
 
   return (
-    <>
+    <div
+      style={{
+        position: "fixed",
+        top: 0,
+        left: 0,
+        width: "100%",
+        height: "100vh",
+        display: "flex",
+        flexDirection: "column",
+        alignItems: "stretch",
+        justifyContent: "flex-start",
+        backgroundImage:
+          'url("https://storage.googleapis.com/project-storage-konser/images/konser.png")',
+        backgroundSize: "cover",
+        backgroundPosition: "center",
+        backgroundRepeat: "no-repeat",
+        margin: 0,
+        padding: 0,
+        boxSizing: "border-box",
+        overflowY: "auto",
+      }}
+    >
       <nav
         className="navbar is-dark-grey"
         role="navigation"
@@ -108,7 +129,7 @@ function AdminTiket() {
         </div>
       </nav>
 
-      <section className="section">
+      <section className="section" style={{ flexGrow: 1 }}>
         <div className="container box">
           <h2 className="title is-4">Daftar Tiket</h2>
           <div className="table-container">
@@ -207,7 +228,7 @@ function AdminTiket() {
           </div>
         </div>
       )}
-    </>
+    </div>
   );
 }
 
