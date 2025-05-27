@@ -2,49 +2,51 @@ import { useEffect, useState } from "react";
 import useAuth from "../auth/UseAuth.js";
 import axios from "../api/AxiosInstance.js";
 import { BASE_URL } from "../utils/utils.js";
-import { Link, useNavigate } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 
 function ProfilePage() {
-  const { accessToken, refreshAccessToken, logout } = useAuth();
+  const { accessToken, logout } = useAuth();
   const [email, setEmail] = useState("");
   const [tiketList, setTiketList] = useState([]);
   const [konserMap, setKonserMap] = useState({});
   const [loading, setLoading] = useState(true);
   const navigate = useNavigate();
 
+  const fetchProfile = async () => {
+    try {
+      const emailLocal = localStorage.getItem("email");
+      setEmail(emailLocal || "");
+      if (!emailLocal) return;
+
+      const res = await axios.get(`${BASE_URL}/pengunjung/${emailLocal}`, {
+        headers: { Authorization: `Bearer ${accessToken}` },
+      });
+
+      const tiketArray = (res.data.data || []).map(
+        (pengunjung) => pengunjung.tiket
+      );
+      setTiketList(tiketArray);
+
+      const konserRes = await axios.get(`${BASE_URL}/konser`, {
+        headers: { Authorization: `Bearer ${accessToken}` },
+      });
+      const map = {};
+      (konserRes.data.data || []).forEach((k) => {
+        map[k.nama] = k;
+      });
+      setKonserMap(map);
+    } catch (error) {
+      console.error(error);
+      setTiketList([]);
+      setKonserMap({});
+    } finally {
+      setLoading(false);
+    }
+  };
   useEffect(() => {
-    const fetchProfile = async () => {
-      try {
-        const emailLocal = localStorage.getItem("email");
-        setEmail(emailLocal || "");
-        if (!emailLocal) return;
-
-        const res = await axios.get(`${BASE_URL}/pengunjung/${emailLocal}`, {
-          headers: { Authorization: `Bearer ${accessToken}` },
-        });
-
-        // Transform tiket menjadi array (meskipun hanya 1 tiket)
-        const tiket = res.data.data.tiket;
-        const tiketArray = tiket ? [tiket] : [];
-        setTiketList(tiketArray);
-
-        const konserRes = await axios.get(`${BASE_URL}/konser`, {
-          headers: { Authorization: `Bearer ${accessToken}` },
-        });
-        const map = {};
-        (konserRes.data.data || []).forEach((k) => {
-          map[k.nama] = k;
-        });
-        setKonserMap(map);
-      } catch (error) {
-        setTiketList([]);
-        setKonserMap({});
-      } finally {
-        setLoading(false);
-      }
-    };
-
-    if (accessToken) fetchProfile();
+    if (accessToken) {
+      fetchProfile();
+    }
   }, [accessToken]);
 
   const handleLogout = async () => {
@@ -79,23 +81,32 @@ function ProfilePage() {
           backgroundColor: "rgba(0,0,0,0.8)",
           padding: "0.5rem 1rem",
           zIndex: 1000,
+          display: "flex",
+          alignItems: "center",
+          justifyContent: "space-between",
         }}
       >
-        <div
-          className="navbar-brand"
-          style={{ fontWeight: "bold", fontSize: "1.2rem", color: "white" }}
+        <button
+          onClick={() => navigate(-1)}
+          style={{
+            fontWeight: "bold",
+            fontSize: "2.0rem",
+            color: "white",
+            background: "none",
+            border: "none",
+            cursor: "pointer",
+          }}
         >
-          Admin Dashboard
-        </div>
-        <div className="navbar-end">
-          <button
-            onClick={handleLogout}
-            className="button is-danger"
-            style={{ marginLeft: "auto" }}
-          >
-            Logout
-          </button>
-        </div>
+          &larr;
+        </button>
+
+        <button
+          onClick={handleLogout}
+          className="button is-danger"
+          style={{ marginLeft: "auto" }}
+        >
+          Logout
+        </button>
       </nav>
 
       <div
@@ -142,8 +153,8 @@ function ProfilePage() {
               <p style={{ color: "#bbb" }}>Loading...</p>
             ) : tiketList.length > 0 ? (
               <ul style={{ listStyleType: "disc", paddingLeft: "1.5rem" }}>
-                {tiketList.map((t, idx) => {
-                  const konser = konserMap[t.tiket] || {};
+                {tiketList.map((tiket, idx) => {
+                  const konser = konserMap[tiket] || {};
                   return (
                     <li
                       key={idx}
@@ -168,7 +179,7 @@ function ProfilePage() {
                       )}
                       <div>
                         <div style={{ fontWeight: "600" }}>
-                          {konser.nama || t.tiket}
+                          {konser.nama || tiket}
                         </div>
                         <div style={{ color: "#ccc", fontSize: "0.9rem" }}>
                           {konser.tanggal || "-"}
