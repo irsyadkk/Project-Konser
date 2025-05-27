@@ -149,9 +149,10 @@ export const deleteKonser = async (req, res) => {
     }
 
     await Konser.destroy({ where: { id: req.params.id } });
+    await Tiket.destroy({ where: { id: req.params.id } });
     res.status(200).json({
       status: "Success",
-      message: "Konser Deleted",
+      message: "Konser & Tiket Deleted",
     });
   } catch (error) {
     res.status(error.statusCode || 500).json({

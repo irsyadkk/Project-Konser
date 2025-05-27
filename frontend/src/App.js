@@ -44,6 +44,12 @@ function AppRoutes() {
         path="/dashboard"
         element={isAuthenticated ? <KonserApp /> : <Navigate to="/login" />}
       />
+      <Route
+        path="/admin-dashboard"
+        element={
+          isAuthenticated ? <AdminDashboard /> : <Navigate to="/login" />
+        }
+      />
     </Routes>
   );
 }
