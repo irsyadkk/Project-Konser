@@ -102,18 +102,16 @@ function Dashboard() {
             Halo, {userName} !
           </span>
         </div>
-
-        <div className="navbar-item">
-          <input
-            type="text"
-            className="input"
-            placeholder="Cari konser..."
-            value={searchQuery}
-            onChange={handleSearchChange}
-          />
-        </div>
-
         <div className="navbar-end">
+          <div className="navbar-item">
+            <input
+              type="text"
+              className="input"
+              placeholder="Cari konser..."
+              value={searchQuery}
+              onChange={handleSearchChange}
+            />
+          </div>
           <div className="navbar-item">
             <button
               onClick={handleProfile}

@@ -133,7 +133,7 @@ const AdminDashboard = () => {
                       selectedTable === "user" ? "is-info" : "is-dark"
                     }`}
                   >
-                    Tabel User
+                    User
                   </button>
                   <button
                     onClick={() => setSelectedTable("pengunjung")}
@@ -141,7 +141,7 @@ const AdminDashboard = () => {
                       selectedTable === "pengunjung" ? "is-info" : "is-dark"
                     }`}
                   >
-                    Tabel Pengunjung
+                    Pengunjung
                   </button>
                 </div>
               </div>
@@ -151,7 +151,7 @@ const AdminDashboard = () => {
                     <input
                       className="input"
                       type="text"
-                      placeholder="Cari nama..."
+                      placeholder="Cari email..."
                       value={searchTerm}
                       onChange={handleSearchChange}
                     />
