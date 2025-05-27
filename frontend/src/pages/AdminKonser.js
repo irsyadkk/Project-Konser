@@ -17,7 +17,8 @@ function AdminKonser() {
   const [harga, setHarga] = useState();
   const [quota, setQuota] = useState();
   const [statusMsg, setStatusMsg] = useState("");
-  const [statusType, setStatusType] = useState(""); // 'success' atau 'error'
+  const [statusType, setStatusType] = useState("");
+  const [searchQuery, setSearchQuery] = useState("");
 
   useEffect(() => {
     if (accessToken) fetchKonser();
@@ -82,8 +83,8 @@ function AdminKonser() {
       setStatusMsg("Berhasil mengupdate konser.");
       setStatusType("success");
     } catch (error) {
-      console.error("Error updating tiket:", error);
-      setStatusMsg(error.response?.data?.message || "Gagal mengupdate tiket");
+      console.error("Error updating konser:", error);
+      setStatusMsg(error.response?.data?.message || "Gagal mengupdate konser");
       setStatusType("error");
     }
   };
@@ -147,6 +148,10 @@ function AdminKonser() {
       setStatusType("error");
     }
   };
+
+  const filteredKonser = konserList.filter((konser) =>
+    konser.nama.toLowerCase().includes(searchQuery.toLowerCase())
+  );
 
   return (
     <div
@@ -231,7 +236,6 @@ function AdminKonser() {
                   />
                 </div>
               </div>
-
               <div className="column is-half">
                 <label className="label">Poster</label>
                 <div className="control">
@@ -246,7 +250,6 @@ function AdminKonser() {
                   />
                 </div>
               </div>
-
               <div className="column is-half">
                 <label className="label">Tanggal</label>
                 <div className="control">
@@ -260,7 +263,6 @@ function AdminKonser() {
                   />
                 </div>
               </div>
-
               <div className="column is-half">
                 <label className="label">Lokasi</label>
                 <div className="control">
@@ -275,7 +277,6 @@ function AdminKonser() {
                   />
                 </div>
               </div>
-
               <div className="column is-half">
                 <label className="label">Bintang Tamu</label>
                 <div className="control">
@@ -290,7 +291,6 @@ function AdminKonser() {
                   />
                 </div>
               </div>
-
               <div className="column is-half">
                 <label className="label">Harga Konser</label>
                 <div className="control">
@@ -306,7 +306,6 @@ function AdminKonser() {
                   />
                 </div>
               </div>
-
               <div className="column is-half">
                 <label className="label">Quota Konser</label>
                 <div className="control">
@@ -323,7 +322,6 @@ function AdminKonser() {
                 </div>
               </div>
             </div>
-
             <div className="field mt-4">
               <div className="control">
                 <button
@@ -341,15 +339,17 @@ function AdminKonser() {
       <section className="section">
         <div className="container box">
           <h2 className="title is-4">Daftar Konser</h2>
-          {statusMsg && (
-            <div
-              className={`mb-3 has-text-centered ${
-                statusType === "error" ? "has-text-danger" : "has-text-success"
-              }`}
-            >
-              {statusMsg}
+          <div className="field">
+            <div className="control">
+              <input
+                type="text"
+                placeholder="Cari konser berdasarkan nama..."
+                value={searchQuery}
+                onChange={(e) => setSearchQuery(e.target.value)}
+                className="input"
+              />
             </div>
-          )}
+          </div>
           <div className="table-container">
             <table className="table is-fullwidth is-striped is-hoverable">
               <thead>
@@ -363,8 +363,8 @@ function AdminKonser() {
                 </tr>
               </thead>
               <tbody>
-                {konserList.map((konser) => (
-                  <tr key={konser.nama}>
+                {filteredKonser.map((konser) => (
+                  <tr key={konser.id}>
                     <td>
                       <img
                         src={konser.poster}
@@ -385,7 +385,7 @@ function AdminKonser() {
                       </button>
                       <button
                         onClick={() => handleDeleteKonser(konser.id)}
-                        className="button is-warning is-small"
+                        className="button is-danger is-small"
                       >
                         Delete
                       </button>

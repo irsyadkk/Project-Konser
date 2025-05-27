@@ -5,7 +5,7 @@ import dotenv from "dotenv";
 import cookieParser from "cookie-parser";
 
 dotenv.config();
-const ALLOWED_ORIGINS = process.env.ALLOWED_ORIGINS?.split(",") || [];
+const ALLOWED_ORIGINS = process.env.ALLOWED_ORIGINS?.split("|") || [];
 const app = express();
 const corsOptions = {
   origin: function (origin, callback) {

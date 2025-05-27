@@ -10,6 +10,7 @@ function AdminTiket() {
   const [editingTiket, setEditingTiket] = useState(null);
   const [statusMsg, setStatusMsg] = useState("");
   const [statusType, setStatusType] = useState("");
+  const [searchQuery, setSearchQuery] = useState("");
   const navigate = useNavigate();
 
   useEffect(() => {
@@ -149,6 +150,17 @@ function AdminTiket() {
               {statusMsg}
             </div>
           )}
+          <div className="field mb-4">
+            <div className="control">
+              <input
+                type="text"
+                placeholder="Cari nama konser..."
+                value={searchQuery}
+                onChange={(e) => setSearchQuery(e.target.value)}
+                className="input"
+              />
+            </div>
+          </div>
           <div className="table-container">
             <table className="table is-fullwidth is-striped is-hoverable">
               <thead>
@@ -161,22 +173,26 @@ function AdminTiket() {
                 </tr>
               </thead>
               <tbody>
-                {tiketList.map((tiket) => (
-                  <tr key={tiket.id}>
-                    <td>{tiket.nama}</td>
-                    <td>{tiket.tanggal}</td>
-                    <td>{tiket.harga}</td>
-                    <td>{tiket.quota}</td>
-                    <td>
-                      <button
-                        onClick={() => handleEditTiket(tiket.id)}
-                        className="button is-warning is-small"
-                      >
-                        Edit
-                      </button>
-                    </td>
-                  </tr>
-                ))}
+                {tiketList
+                  .filter((tiket) =>
+                    tiket.nama.toLowerCase().includes(searchQuery.toLowerCase())
+                  )
+                  .map((tiket) => (
+                    <tr key={tiket.id}>
+                      <td>{tiket.nama}</td>
+                      <td>{tiket.tanggal}</td>
+                      <td>{tiket.harga}</td>
+                      <td>{tiket.quota}</td>
+                      <td>
+                        <button
+                          onClick={() => handleEditTiket(tiket.id)}
+                          className="button is-warning is-small"
+                        >
+                          Edit
+                        </button>
+                      </td>
+                    </tr>
+                  ))}
               </tbody>
             </table>
           </div>
