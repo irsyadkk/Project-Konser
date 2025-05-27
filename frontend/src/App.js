@@ -5,7 +5,7 @@ import LoginPage from "./pages/LoginPage";
 import RegisterPage from "./pages/RegisterPage";
 import OrderPage from "./pages/OrderPage";
 //import UserDashboard from "./pages/UserDashboard";
-import KonserApp from "./pages/Konser";
+import Dashboard from "./pages/AdminDashboard";
 
 function App() {
   return (
@@ -42,7 +42,7 @@ function AppRoutes() {
       />
       <Route
         path="/dashboard"
-        element={isAuthenticated ? <KonserApp /> : <Navigate to="/login" />}
+        element={isAuthenticated ? <Dashboard /> : <Navigate to="/login" />}
       />
       <Route
         path="/admin-dashboard"
