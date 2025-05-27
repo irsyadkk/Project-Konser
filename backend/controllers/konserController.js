@@ -43,13 +43,24 @@ export const getKonserById = async (req, res) => {
 //ADD KONSER
 export const addKonser = async (req, res) => {
   try {
-    const { nama, tanggal, lokasi, bintangtamu, harga, quota } = req.body;
-    if (!nama || !tanggal || !lokasi || !bintangtamu || !harga || !quota) {
+    const { nama, poster, tanggal, lokasi, bintangtamu, harga, quota } =
+      req.body;
+    if (
+      !nama ||
+      !poster ||
+      !tanggal ||
+      !lokasi ||
+      !bintangtamu ||
+      !harga ||
+      !quota
+    ) {
       const msg = `${
         !nama
           ? "Nama"
           : !tanggal
           ? "Tanggal"
+          : !poster
+          ? "Poster"
           : !lokasi
           ? "Lokasi"
           : !bintangtamu
@@ -67,6 +78,7 @@ export const addKonser = async (req, res) => {
       tanggal: tanggal,
       lokasi: lokasi,
       bintangtamu: bintangtamu,
+      poster: poster,
     });
     await Tiket.create({
       nama: nama,
