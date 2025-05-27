@@ -20,7 +20,7 @@ const LoginPage = () => {
         if (email === "admin@gmail.com") {
           navigate("/admin-dashboard");
         } else {
-          navigate("/user-dashboard");
+          navigate("/dashboard");
         }
       } else {
         setError("Login failed");
