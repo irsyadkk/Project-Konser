@@ -58,6 +58,9 @@ function Dashboard() {
     await logout();
     navigate("/login");
   };
+  const handleProfile = async () => {
+    navigate("/profile");
+  };
 
   const handleSearchChange = (e) => {
     const query = e.target.value.toLowerCase();
@@ -103,7 +106,6 @@ function Dashboard() {
           </span>
         </div>
 
-        {/* Search Bar */}
         <div className="navbar-item">
           <input
             type="text"
@@ -119,6 +121,11 @@ function Dashboard() {
             <button onClick={handleLogout} className="button is-danger">
               Logout
             </button>
+            <div className="navbar-item">
+              <button onClick={handleProfile} className="button is-danger">
+                Profile
+              </button>
+            </div>
           </div>
         </div>
       </nav>
