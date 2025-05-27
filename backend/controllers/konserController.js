@@ -57,10 +57,10 @@ export const addKonser = async (req, res) => {
       const msg = `${
         !nama
           ? "Nama"
-          : !tanggal
-          ? "Tanggal"
           : !poster
           ? "Poster"
+          : !tanggal
+          ? "Tanggal"
           : !lokasi
           ? "Lokasi"
           : !bintangtamu
@@ -101,14 +101,16 @@ export const addKonser = async (req, res) => {
 //UPDATE KONSER
 export const updateKonser = async (req, res) => {
   try {
-    const { nama, tanggal, lokasi, bintangtamu } = req.body;
+    const { nama, poster, tanggal, lokasi, bintangtamu } = req.body;
     const ifKonserExist = await Konser.findOne({
       where: { id: req.params.id },
     });
-    if (!nama || !tanggal || !lokasi || !bintangtamu) {
+    if (!nama || !poster || !tanggal || !lokasi || !bintangtamu) {
       const msg = `${
         !nama
           ? "Nama"
+          : !poster
+          ? "Poster"
           : !tanggal
           ? "Tanggal"
           : !lokasi
@@ -124,7 +126,7 @@ export const updateKonser = async (req, res) => {
       error.statusCode = 400;
       throw error;
     }
-    let updatedData = { nama, tanggal, lokasi, bintangtamu };
+    let updatedData = { nama, poster, tanggal, lokasi, bintangtamu };
 
     await Konser.update(updatedData, {
       where: { id: req.params.id },
