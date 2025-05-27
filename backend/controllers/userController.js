@@ -92,7 +92,7 @@ export const addUser = async (req, res) => {
     }
 
     const encryptedpass = await bcrypt.hash(pass, 5);
-    await Usern.create({
+    await User.create({
       nama: nama,
       email: email,
       umur: umur,

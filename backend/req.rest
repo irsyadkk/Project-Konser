@@ -1,6 +1,6 @@
-# // GET ADMIN
-# GET http://localhost:5000/admin
-# Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwibmFtYSI6InVzZXIiLCJlbWFpbCI6InVzZXJAZ21haWwuY29tIiwiY3JlYXRlZEF0IjoiMjAyNS0wNS0xOVQxNzowNzozNS4wMDBaIiwidXBkYXRlZEF0IjoiMjAyNS0wNS0xOVQxNzowNzo1MC4wMDBaIiwiaWF0IjoxNzQ3NzA1NjQyLCJleHAiOjE3NDc3OTIwNDJ9._24qnf8E5f1ZDnuixKy9qhLoYIHG2PAdBWwzo-g7uLU
+// GET ADMIN
+GET https://api-konser-559917148272.us-central1.run.app/users
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwibmFtYSI6InVzZXIiLCJlbWFpbCI6InVzZXJAZ21haWwuY29tIiwiY3JlYXRlZEF0IjoiMjAyNS0wNS0xOVQxNzowNzozNS4wMDBaIiwidXBkYXRlZEF0IjoiMjAyNS0wNS0xOVQxNzowNzo1MC4wMDBaIiwiaWF0IjoxNzQ3NzA1NjQyLCJleHAiOjE3NDc3OTIwNDJ9._24qnf8E5f1ZDnuixKy9qhLoYIHG2PAdBWwzo-g7uLU
 
 # ###
 
@@ -20,15 +20,16 @@
 # // DELETE ADMIN BY ID
 # DELETE http://localhost:5000/admin/0
 
-# ###
+###
 // REGISTER
 POST https://api-konser-559917148272.us-central1.run.app/register
 Content-Type: application/json
 
 {
-"nama": "Gimmy",
-"email": "gimmy@gmail.com",
-"pass": "12345"
+"nama": "admin",
+"email": "admin@gmail.com",
+"umur": 25,
+"pass": "1"
 }
 
 ###
@@ -38,8 +39,8 @@ POST https://api-konser-559917148272.us-central1.run.app/login
 Content-Type: application/json
 
 {
-"email": "test1",
-"pass": "test"
+"email": "admin@gmail.com",
+"pass": "12345"
 }
 
 ###
