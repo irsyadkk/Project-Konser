@@ -343,7 +343,7 @@ function AdminKonser() {
             <div className="control">
               <input
                 type="text"
-                placeholder="Cari konser berdasarkan nama..."
+                placeholder="Cari nama konser..."
                 value={searchQuery}
                 onChange={(e) => setSearchQuery(e.target.value)}
                 className="input"

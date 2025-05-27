@@ -7,6 +7,8 @@ import { Link, useNavigate, useLocation } from "react-router-dom";
 function Dashboard() {
   const { accessToken, logout } = useAuth();
   const [konserList, setKonserList] = useState([]);
+  const [filteredKonser, setFilteredKonser] = useState([]);
+  const [searchQuery, setSearchQuery] = useState("");
   const navigate = useNavigate();
   const location = useLocation();
   const userEmail = location.state?.email || "";
@@ -20,6 +22,7 @@ function Dashboard() {
         headers: { Authorization: `Bearer ${accessToken}` },
       });
       setKonserList(response.data.data || []);
+      setFilteredKonser(response.data.data || []);
     } catch (error) {
       console.error("Error fetching konser:", error);
     }
@@ -56,6 +59,16 @@ function Dashboard() {
     navigate("/login");
   };
 
+  const handleSearchChange = (e) => {
+    const query = e.target.value.toLowerCase();
+    setSearchQuery(query);
+
+    const filtered = konserList.filter((konser) =>
+      konser.nama.toLowerCase().includes(query)
+    );
+    setFilteredKonser(filtered);
+  };
+
   return (
     <div
       style={{
@@ -76,7 +89,7 @@ function Dashboard() {
         margin: 0,
         padding: 0,
         boxSizing: "border-box",
-        overflowY: "auto", // supaya konten scrollable jika tinggi melebihi viewport
+        overflowY: "auto",
       }}
     >
       <nav
@@ -90,6 +103,17 @@ function Dashboard() {
           </span>
         </div>
 
+        {/* Search Bar */}
+        <div className="navbar-item">
+          <input
+            type="text"
+            className="input"
+            placeholder="Cari konser..."
+            value={searchQuery}
+            onChange={handleSearchChange}
+          />
+        </div>
+
         <div className="navbar-end">
           <div className="navbar-item">
             <button onClick={handleLogout} className="button is-danger">
@@ -101,9 +125,9 @@ function Dashboard() {
 
       <section className="section" style={{ flexGrow: 1 }}>
         <div className="container">
-          {konserList.length > 0 ? (
+          {filteredKonser.length > 0 ? (
             <div className="columns is-multiline">
-              {konserList.map((konser) => (
+              {filteredKonser.map((konser) => (
                 <div key={konser.id} className="column is-3">
                   <div
                     className="card is-clickable"
@@ -141,7 +165,7 @@ function Dashboard() {
             </div>
           ) : (
             <div className="has-text-centered has-text-grey">
-              Belum ada konser tersedia.
+              Tidak ada konser yang sesuai.
             </div>
           )}
         </div>

@@ -141,7 +141,7 @@ const AdminDashboard = () => {
                     <input
                       className="input"
                       type="text"
-                      placeholder="Search..."
+                      placeholder="Cari nama..."
                       value={searchTerm}
                       onChange={handleSearchChange}
                     />
