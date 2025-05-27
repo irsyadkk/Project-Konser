@@ -13,6 +13,11 @@ const LoginPage = () => {
   const handleLogin = async (e) => {
     e.preventDefault();
     setError("");
+    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    if (!emailRegex.test(email)) {
+      setError("Masukkan email yang valid!");
+      return;
+    }
     try {
       const result = await login(email, pass);
       if (result) {

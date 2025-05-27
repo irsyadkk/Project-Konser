@@ -10,6 +10,8 @@ function Detail() {
   const [konser, setKonser] = useState(null);
   const [tiket, setTiket] = useState(null);
   const [loading, setLoading] = useState(true);
+  const [orderMsg, setOrderMsg] = useState("");
+  const [orderMsgType, setOrderMsgType] = useState("");
   const navigate = useNavigate();
 
   useEffect(() => {
@@ -39,6 +41,8 @@ function Detail() {
   }, [id, accessToken]);
 
   const handleOrder = async () => {
+    setOrderMsg("");
+    setOrderMsgType("");
     if (!accessToken || !konser || !tiket) return;
     try {
       const email = localStorage.getItem("email");
@@ -50,7 +54,8 @@ function Detail() {
       localStorage.setItem("umur", userData.umur);
 
       if (tiket.quota <= 0) {
-        alert("Maaf, tiket sudah habis!");
+        setOrderMsg("Maaf, tiket sudah habis!");
+        setOrderMsgType("error");
         return;
       }
 
@@ -66,9 +71,9 @@ function Detail() {
           headers: { Authorization: `Bearer ${accessToken}` },
         }
       );
-      alert("Order berhasil!");
+      setOrderMsg("Order berhasil!");
+      setOrderMsgType("success");
 
-      // Refresh konser dan tiket
       const konserRes = await axios.get(`${BASE_URL}/konser/${id}`, {
         headers: { Authorization: `Bearer ${accessToken}` },
       });
@@ -82,9 +87,11 @@ function Detail() {
       setTiket(tiketMatch || null);
     } catch (error) {
       if (error.response?.data?.message === "Anda sudah memesan tiket ini !") {
-        alert("Anda sudah membeli tiket konser ini!");
+        setOrderMsg("Anda sudah membeli tiket konser ini!");
+        setOrderMsgType("error");
       } else {
-        alert("Terjadi kesalahan saat order tiket.");
+        setOrderMsg("Terjadi kesalahan saat order tiket.");
+        setOrderMsgType("error");
       }
       console.error("Error order:", error);
     }
@@ -126,7 +133,7 @@ function Detail() {
         padding: 0,
         boxSizing: "border-box",
         flexDirection: "column",
-        overflowY: "auto", // agar konten bisa discroll jika terlalu panjang
+        overflowY: "auto",
       }}
     >
       <nav
@@ -134,21 +141,7 @@ function Detail() {
         role="navigation"
         aria-label="main navigation"
         style={{ width: "100%" }}
-      >
-        <div className="navbar-brand">
-          <span className="navbar-item has-text-weight-bold is-size-5">
-            {/* Halo, {userName} ! */}
-          </span>
-        </div>
-
-        <div className="navbar-end">
-          <div className="navbar-item">
-            {/* <button onClick={handleLogout} className="button is-danger">
-              Logout
-            </button> */}
-          </div>
-        </div>
-      </nav>
+      ></nav>
 
       <section className="section" style={{ width: "100%", maxWidth: "600px" }}>
         <div className="container">
@@ -205,6 +198,17 @@ function Detail() {
                   Kembali
                 </button>
               </div>
+              {orderMsg && (
+                <div
+                  className={`mt-3 has-text-centered ${
+                    orderMsgType === "error"
+                      ? "has-text-danger"
+                      : "has-text-success"
+                  }`}
+                >
+                  {orderMsg}
+                </div>
+              )}
             </div>
           </div>
         </div>
