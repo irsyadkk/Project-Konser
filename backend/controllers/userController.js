@@ -218,7 +218,7 @@ export async function loginHandler(req, res) {
         res.status(200).json({
           status: "Succes",
           message: "Login Berhasil",
-          safeAdminData,
+          safeUserData,
           accessToken,
         });
       } else {
