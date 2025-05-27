@@ -38,8 +38,8 @@ POST https://api-konser-559917148272.us-central1.run.app/login
 Content-Type: application/json
 
 {
-"email": "user@gmail.com",
-"pass": "12345"
+"email": "test1",
+"pass": "test"
 }
 
 ###
@@ -64,7 +64,7 @@ Content-Type: application/json
 
 // GET TIKET
 GET https://api-konser-559917148272.us-central1.run.app/tiket
-Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwibmFtYSI6InVzZXIiLCJlbWFpbCI6InVzZXJAZ21haWwuY29tIiwiY3JlYXRlZEF0IjoiMjAyNS0wNS0yMFQwMzo1Nzo0OC4wMDBaIiwidXBkYXRlZEF0IjoiMjAyNS0wNS0yMFQwMzo1Nzo0OC4wMDBaIiwiaWF0IjoxNzQ3NzEzNDcxLCJleHAiOjE3NDc3OTk4NzF9.S4UYuanAJtGaBRIMSJ2-QTaI9T5NdmXPhKjDIipKBa0
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6NCwibmFtYSI6InRlc3QxIiwiZW1haWwiOiJ0ZXN0MSIsInVtdXIiOjI1LCJjcmVhdGVkQXQiOiIyMDI1LTA1LTI3VDA0OjAwOjI5LjAwMFoiLCJ1cGRhdGVkQXQiOiIyMDI1LTA1LTI3VDA0OjAzOjE1LjAwMFoiLCJpYXQiOjE3NDgzMjk4MjMsImV4cCI6MTc0ODQxNjIyM30.ESKGNt3O4r2kNsQS7XlVpUP3OMGXLqCmRNHvWC3m0E4
 
 ###
 
@@ -80,8 +80,6 @@ Content-Type: application/json
 Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwibmFtYSI6InRlcyIsImVtYWlsIjoidGVzQHRlcy5jb20iLCJjcmVhdGVkQXQiOiIyMDI1LTA1LTEyVDA4OjI0OjQ1LjAwMFoiLCJ1cGRhdGVkQXQiOiIyMDI1LTA1LTEyVDA4OjMxOjAyLjAwMFoiLCJpYXQiOjE3NDcwNjM3MTUsImV4cCI6MTc0NzA2NDAxNX0.CDXK3KN7UWVDEedYB4SLhNpOTmhKVgks_2SuBDGe24k
 
 {
-"nama": "test tiket",
-"tanggal": "20 maret 2024",
 "harga": 120000,
 "quota": "5"
 }
@@ -94,15 +92,14 @@ DELETE http://localhost:5000/tiket/1
 ###
 
 // ORDER TIKET
-PATCH  https://api-konser-559917148272.us-central1.run.app/order/3
+PATCH  https://api-konser-559917148272.us-central1.run.app/order/2
 Content-Type: application/json
-Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwibmFtYSI6InVzZXIiLCJlbWFpbCI6InVzZXJAZ21haWwuY29tIiwiY3JlYXRlZEF0IjoiMjAyNS0wNS0yMFQwMzo1Nzo0OC4wMDBaIiwidXBkYXRlZEF0IjoiMjAyNS0wNS0yMFQwMzo1Nzo0OC4wMDBaIiwiaWF0IjoxNzQ3NzEzNDcxLCJleHAiOjE3NDc3OTk4NzF9.S4UYuanAJtGaBRIMSJ2-QTaI9T5NdmXPhKjDIipKBa0
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6NCwibmFtYSI6InRlc3QxIiwiZW1haWwiOiJ0ZXN0MSIsInVtdXIiOjI1LCJjcmVhdGVkQXQiOiIyMDI1LTA1LTI3VDA0OjAwOjI5LjAwMFoiLCJ1cGRhdGVkQXQiOiIyMDI1LTA1LTI3VDA0OjAwOjM5LjAwMFoiLCJpYXQiOjE3NDgzMTg0OTQsImV4cCI6MTc0ODQwNDg5NH0.l-QVde6ztFZW1Tt-05WXU3G84phKg01DhIvQFYTKV1U
 
 {
     "nama": "popo",
     "umur": "20",
-    "email": "popo@gmail.com",
-    "quantity": 1
+    "email": "popo@gmail.com"
 }
 
 ###
@@ -110,10 +107,11 @@ Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwibmFtYSI6I
 // ADD KONSER
 POST https://api-konser-559917148272.us-central1.run.app/konser
 Content-Type: application/json
-Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwibmFtYSI6InVzZXIiLCJlbWFpbCI6InVzZXJAZ21haWwuY29tIiwiY3JlYXRlZEF0IjoiMjAyNS0wNS0yMFQwOTozMjozNi4wMDBaIiwidXBkYXRlZEF0IjoiMjAyNS0wNS0yMVQwNjozMDoyNy4wMDBaIiwiaWF0IjoxNzQ3OTg2NDM4LCJleHAiOjE3NDgwNzI4Mzh9.HCW_0keJBBSB5PBjM2KVPM3GbDfBeRvfyMFuzWRz9Ss
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6NCwibmFtYSI6InRlc3QxIiwiZW1haWwiOiJ0ZXN0MSIsInVtdXIiOjI1LCJjcmVhdGVkQXQiOiIyMDI1LTA1LTI3VDA0OjAwOjI5LjAwMFoiLCJ1cGRhdGVkQXQiOiIyMDI1LTA1LTI3VDA0OjAwOjM5LjAwMFoiLCJpYXQiOjE3NDgzMTg0OTQsImV4cCI6MTc0ODQwNDg5NH0.l-QVde6ztFZW1Tt-05WXU3G84phKg01DhIvQFYTKV1U
 
 {
 "nama": "Kareem Fest",
+"poster": "https://marketplace.canva.com/EAGLxKj0I2M/2/0/1131w/canva-merah-dan-putih-modern-konser-spesial-kemerdekaan-poster-Rw45qHDhqD8.jpg",
 "tanggal": "30 Mei 2026",
 "lokasi": "Jakarta",
 "bintangtamu": "PSY feat. Snoop Dogg",
@@ -125,7 +123,7 @@ Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwibmFtYSI6I
 
 // GET KONSER
 GET https://api-konser-559917148272.us-central1.run.app/konser
-Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwibmFtYSI6InVzZXIiLCJlbWFpbCI6InVzZXJAZ21haWwuY29tIiwiY3JlYXRlZEF0IjoiMjAyNS0wNS0yMFQwMzo1Nzo0OC4wMDBaIiwidXBkYXRlZEF0IjoiMjAyNS0wNS0yMFQwMzo1Nzo0OC4wMDBaIiwiaWF0IjoxNzQ3NzEzNDcxLCJleHAiOjE3NDc3OTk4NzF9.S4UYuanAJtGaBRIMSJ2-QTaI9T5NdmXPhKjDIipKBa0
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6NCwibmFtYSI6InRlc3QxIiwiZW1haWwiOiJ0ZXN0MSIsInVtdXIiOjI1LCJjcmVhdGVkQXQiOiIyMDI1LTA1LTI3VDA0OjAwOjI5LjAwMFoiLCJ1cGRhdGVkQXQiOiIyMDI1LTA1LTI3VDA0OjAzOjE1LjAwMFoiLCJpYXQiOjE3NDgzMjk4MjMsImV4cCI6MTc0ODQxNjIyM30.ESKGNt3O4r2kNsQS7XlVpUP3OMGXLqCmRNHvWC3m0E4
 
 ###
 

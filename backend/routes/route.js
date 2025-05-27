@@ -1,13 +1,14 @@
 import express from "express";
 import {
-  getAdmin,
-  getAdminById,
-  addAdmin,
-  updateAdmin,
-  deleteAdmin,
+  getUser,
+  getUserById,
+  addUser,
+  updateUser,
+  deleteUser,
   loginHandler,
   logout,
-} from "../controllers/adminController.js";
+  getUserByEmail,
+} from "../controllers/userController.js";
 import {
   getPengunjung,
   getPengunjungById,
@@ -39,12 +40,13 @@ const router = express.Router();
 router.get("/token", refreshToken);
 
 //endpoint auth
-router.post("/register", addAdmin);
+router.post("/register", addUser);
 router.post("/login", loginHandler);
 router.delete("/logout", logout);
 
 // ADMINS
-router.get("/admin", getAdmin);
+router.get("/users", verifyToken, getUser);
+router.get("/users/:email", verifyToken, getUserByEmail);
 // router.get('/admin/:id', verifyToken, getAdminById);
 // router.patch('/admin/:id', verifyToken, updateAdmin);
 // router.delete('/admin/:id', verifyToken, deleteAdmin);

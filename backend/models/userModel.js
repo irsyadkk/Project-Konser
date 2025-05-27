@@ -1,8 +1,8 @@
 import { Sequelize } from "sequelize";
 import db from "../config/database.js";
 
-const Admin = db.define(
-  "admin",
+const User = db.define(
+  "user",
   {
     id: {
       type: Sequelize.INTEGER,
@@ -22,4 +22,4 @@ const Admin = db.define(
 
 db.sync().then(() => console.log("Database synced"));
 
-export default Admin;
+export default User;

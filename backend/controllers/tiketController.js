@@ -1,4 +1,3 @@
-import Konser from "../models/konserModel.js";
 import Tiket from "../models/tiketModel.js";
 
 //GET TIKET

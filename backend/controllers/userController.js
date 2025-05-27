@@ -1,16 +1,16 @@
 import { Error } from "sequelize";
-import Admin from "../models/adminModel.js";
+import User from "../models/userModel";
 import bcrypt from "bcrypt";
 import jwt from "jsonwebtoken";
 
-//GET ADMIN
-export const getAdmin = async (req, res) => {
+//GET USER
+export const getUser = async (req, res) => {
   try {
-    const admins = await Admin.findAll();
+    const users = await User.findAll();
     res.status(200).json({
       status: "Success",
-      message: "Admins Retrieved",
-      data: admins,
+      message: "Users Retrieved",
+      data: users,
     });
   } catch (error) {
     res.status(error.statusCode || 500).json({
@@ -20,23 +20,23 @@ export const getAdmin = async (req, res) => {
   }
 };
 
-//GET ADMIN BY ID
-export const getAdminById = async (req, res) => {
+//GET USER BY ID
+export const getUserById = async (req, res) => {
   try {
-    const admin = await Admin.findOne({
+    const user = await User.findOne({
       where: {
         id: req.params.id,
       },
     });
-    if (!admin) {
-      const error = new Error("Admin tidak ditemukan !");
+    if (!user) {
+      const error = new Error("User tidak ditemukan !");
       error.statusCode = 400;
       throw error;
     }
     res.status(200).json({
       status: "Success",
-      message: "Admin Retrieved",
-      data: admin,
+      message: "User Retrieved",
+      data: user,
     });
   } catch (error) {
     res.status(error.statusCode || 500).json({
@@ -46,8 +46,30 @@ export const getAdminById = async (req, res) => {
   }
 };
 
-//ADD ADMIN
-export const addAdmin = async (req, res) => {
+//GET USER BY EMAIL
+export async function getUserByEmail(req, res) {
+  try {
+    const user = await User.findOne({ where: { email: req.params.email } });
+    if (!user) {
+      const error = new Error("User tidak ditemukan !");
+      error.statusCode = 400;
+      throw error;
+    }
+    res.status(200).json({
+      status: "Success",
+      message: "User Retrieved",
+      data: user,
+    });
+  } catch (error) {
+    res.status(error.statusCode || 500).json({
+      status: "Error",
+      message: error.message,
+    });
+  }
+}
+
+//ADD USER
+export const addUser = async (req, res) => {
   try {
     const { nama, email, umur, pass } = req.body;
     if (!nama || !email || !umur || !pass) {
@@ -59,18 +81,18 @@ export const addAdmin = async (req, res) => {
       throw error;
     }
 
-    const existingAdmin = await Admin.findOne({
+    const existingUser = await User.findOne({
       where: { email: email },
     });
 
-    if (existingAdmin) {
+    if (existingUser) {
       const error = new Error("Email Sudah Terdaftar !");
       error.statusCode = 400;
       throw error;
     }
 
     const encryptedpass = await bcrypt.hash(pass, 5);
-    await Admin.create({
+    await Usern.create({
       nama: nama,
       email: email,
       umur: umur,
@@ -78,7 +100,7 @@ export const addAdmin = async (req, res) => {
     });
     res.status(201).json({
       status: "Success",
-      message: "Admin Added",
+      message: "User Added",
     });
   } catch (error) {
     res.status(error.statusCode || 500).json({
@@ -88,11 +110,11 @@ export const addAdmin = async (req, res) => {
   }
 };
 
-//UPDATE ADMIN
-export const updateAdmin = async (req, res) => {
+//UPDATE USER
+export const updateUser = async (req, res) => {
   try {
     const { nama, email, pass } = req.body;
-    const ifAdminExist = await Admin.findOne({ where: { id: req.params.id } });
+    const ifUserExist = await User.findOne({ where: { id: req.params.id } });
     if (!nama || !email || !umur || !pass) {
       const msg = `${
         !nama ? "Nama" : !email ? "Email" : !umur ? "Umur" : "pass"
@@ -101,8 +123,8 @@ export const updateAdmin = async (req, res) => {
       error.statusCode = 401;
       throw error;
     }
-    if (!ifAdminExist) {
-      const error = new Error("Admin not found !");
+    if (!ifUserExist) {
+      const error = new Error("User not found !");
       error.statusCode = 400;
       throw error;
     }
@@ -110,13 +132,13 @@ export const updateAdmin = async (req, res) => {
     const encryptedpass = await bcrypt.hash(pass, 5);
     let updatedData = { nama, email, encryptedpass };
 
-    await Admin.update(updatedData, {
+    await User.update(updatedData, {
       where: { id: req.params.id },
     });
 
     res.status(200).json({
       status: "Success",
-      message: "Admin Updated",
+      message: "User Updated",
     });
   } catch (error) {
     res.status(error.statusCode || 500).json({
@@ -126,20 +148,20 @@ export const updateAdmin = async (req, res) => {
   }
 };
 
-//DELETE ADMIN
-export const deleteAdmin = async (req, res) => {
+//DELETE USER
+export const deleteUser = async (req, res) => {
   try {
-    const ifAdminExist = await Admin.findOne({ where: { id: req.params.id } });
-    if (!ifAdminExist) {
-      const error = new Error("Admin not found !");
+    const ifUserExist = await User.findOne({ where: { id: req.params.id } });
+    if (!ifUserExist) {
+      const error = new Error("User not found !");
       error.statusCode = 400;
       throw error;
     }
 
-    await Admin.destroy({ where: { id: req.params.id } });
+    await User.destroy({ where: { id: req.params.id } });
     res.status(200).json({
       status: "Success",
-      message: "Admin Deleted",
+      message: "User Deleted",
     });
   } catch (error) {
     res.status(error.statusCode || 500).json({
@@ -153,37 +175,37 @@ export const deleteAdmin = async (req, res) => {
 export async function loginHandler(req, res) {
   try {
     const { nama, email, pass } = req.body;
-    const admin = await Admin.findOne({
+    const user = await User.findOne({
       where: {
         email: email,
       },
     });
 
-    if (admin) {
-      const adminPlain = admin.toJSON();
-      const { pass: _, refresh_token: __, ...safeAdminData } = adminPlain;
+    if (user) {
+      const userPlain = user.toJSON();
+      const { pass: _, refresh_token: __, ...safeUserData } = userPlain;
 
-      const decryptPassword = await bcrypt.compare(pass, admin.pass);
+      const decryptPassword = await bcrypt.compare(pass, user.pass);
       if (decryptPassword) {
         const accessToken = jwt.sign(
-          safeAdminData,
+          safeUserData,
           process.env.ACCESS_TOKEN_SECRET,
           {
             expiresIn: "1d",
           }
         );
         const refreshToken = jwt.sign(
-          safeAdminData,
+          safeUserData,
           process.env.REFRESH_TOKEN_SECRET,
           {
             expiresIn: "1d",
           }
         );
-        await Admin.update(
+        await User.update(
           { refresh_token: refreshToken },
           {
             where: {
-              id: admin.id,
+              id: user.id,
             },
           }
         );
@@ -223,18 +245,18 @@ export async function loginHandler(req, res) {
 export async function logout(req, res) {
   const refreshToken = req.cookies.refreshToken;
   if (!refreshToken) return res.sendStatus(204);
-  const admin = await Admin.findOne({
+  const user = await User.findOne({
     where: {
       refresh_token: refreshToken,
     },
   });
-  if (!admin.refresh_token) return res.sendStatus(204);
-  const adminId = admin.id;
-  await Admin.update(
+  if (!user.refresh_token) return res.sendStatus(204);
+  const userId = user.id;
+  await User.update(
     { refresh_token: null },
     {
       where: {
-        id: adminId,
+        id: userId,
       },
     }
   );
