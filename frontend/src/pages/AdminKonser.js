@@ -373,35 +373,43 @@ function AdminKonser() {
                 </tr>
               </thead>
               <tbody>
-                {filteredKonser.map((konser) => (
-                  <tr key={konser.id}>
-                    <td>
-                      <img
-                        src={konser.poster}
-                        alt={`Poster ${konser.nama}`}
-                        style={{ maxWidth: "100px", height: "auto" }}
-                      />
-                    </td>
-                    <td>{konser.nama}</td>
-                    <td>{konser.bintangtamu}</td>
-                    <td>{konser.tanggal}</td>
-                    <td>{konser.lokasi}</td>
-                    <td>
-                      <button
-                        onClick={() => handleEditKonser(konser.id)}
-                        className="button is-warning is-small"
-                      >
-                        Edit
-                      </button>
-                      <button
-                        onClick={() => handleDeleteKonser(konser.id)}
-                        className="button is-danger is-small"
-                      >
-                        Delete
-                      </button>
+                {filteredKonser.length === 0 ? (
+                  <tr>
+                    <td colSpan="6" className="has-text-centered has-text-grey">
+                      Tidak ada data konser
                     </td>
                   </tr>
-                ))}
+                ) : (
+                  filteredKonser.map((konser) => (
+                    <tr key={konser.id}>
+                      <td>
+                        <img
+                          src={konser.poster}
+                          alt={`Poster ${konser.nama}`}
+                          style={{ maxWidth: "100px", height: "auto" }}
+                        />
+                      </td>
+                      <td>{konser.nama}</td>
+                      <td>{konser.bintangtamu}</td>
+                      <td>{konser.tanggal}</td>
+                      <td>{konser.lokasi}</td>
+                      <td>
+                        <button
+                          onClick={() => handleEditKonser(konser.id)}
+                          className="button is-warning is-small"
+                        >
+                          Edit
+                        </button>
+                        <button
+                          onClick={() => handleDeleteKonser(konser.id)}
+                          className="button is-danger is-small"
+                        >
+                          Delete
+                        </button>
+                      </td>
+                    </tr>
+                  ))
+                )}
               </tbody>
             </table>
           </div>

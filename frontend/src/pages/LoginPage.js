@@ -14,7 +14,7 @@ const LoginPage = () => {
     setError("");
     const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
     if (!emailRegex.test(email)) {
-      setError("Masukkan email yang valid!");
+      setError("Masukkan email yang valid !");
       return;
     }
     try {

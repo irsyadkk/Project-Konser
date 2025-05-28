@@ -183,26 +183,38 @@ function AdminTiket() {
                 </tr>
               </thead>
               <tbody>
-                {tiketList
-                  .filter((tiket) =>
-                    tiket.nama.toLowerCase().includes(searchQuery.toLowerCase())
-                  )
-                  .map((tiket) => (
-                    <tr key={tiket.id}>
-                      <td>{tiket.nama}</td>
-                      <td>{tiket.tanggal}</td>
-                      <td>{tiket.harga}</td>
-                      <td>{tiket.quota}</td>
-                      <td>
-                        <button
-                          onClick={() => handleEditTiket(tiket.id)}
-                          className="button is-warning is-small"
-                        >
-                          Edit
-                        </button>
-                      </td>
-                    </tr>
-                  ))}
+                {tiketList.filter((tiket) =>
+                  tiket.nama.toLowerCase().includes(searchQuery.toLowerCase())
+                ).length === 0 ? (
+                  <tr>
+                    <td colSpan="5" className="has-text-centered has-text-grey">
+                      Tidak ada data tiket
+                    </td>
+                  </tr>
+                ) : (
+                  tiketList
+                    .filter((tiket) =>
+                      tiket.nama
+                        .toLowerCase()
+                        .includes(searchQuery.toLowerCase())
+                    )
+                    .map((tiket) => (
+                      <tr key={tiket.id}>
+                        <td>{tiket.nama}</td>
+                        <td>{tiket.tanggal}</td>
+                        <td>{tiket.harga}</td>
+                        <td>{tiket.quota}</td>
+                        <td>
+                          <button
+                            onClick={() => handleEditTiket(tiket.id)}
+                            className="button is-warning is-small"
+                          >
+                            Edit
+                          </button>
+                        </td>
+                      </tr>
+                    ))
+                )}
               </tbody>
             </table>
           </div>

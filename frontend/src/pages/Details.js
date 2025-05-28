@@ -54,7 +54,12 @@ function Detail() {
       localStorage.setItem("umur", userData.umur);
 
       if (tiket.quota <= 0) {
-        setOrderMsg("Maaf, tiket sudah habis!");
+        setOrderMsg("Maaf, tiket sudah habis !");
+        setOrderMsgType("error");
+        return;
+      }
+      if (userData.umur <= 16) {
+        setOrderMsg("Maaf, umur kamu belum cukup !");
         setOrderMsgType("error");
         return;
       }
@@ -71,7 +76,7 @@ function Detail() {
           headers: { Authorization: `Bearer ${accessToken}` },
         }
       );
-      setOrderMsg("Order berhasil!");
+      setOrderMsg("Order berhasil !");
       setOrderMsgType("success");
 
       const konserRes = await axios.get(`${BASE_URL}/konser/${id}`, {
@@ -87,10 +92,10 @@ function Detail() {
       setTiket(tiketMatch || null);
     } catch (error) {
       if (error.response?.data?.message === "Anda sudah memesan tiket ini !") {
-        setOrderMsg("Anda sudah membeli tiket konser ini!");
+        setOrderMsg("Anda sudah membeli tiket konser ini !");
         setOrderMsgType("error");
       } else {
-        setOrderMsg("Terjadi kesalahan saat order tiket.");
+        setOrderMsg("Terjadi kesalahan saat order tiket !");
         setOrderMsgType("error");
       }
       console.error("Error order:", error);

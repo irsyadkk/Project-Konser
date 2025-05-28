@@ -188,7 +188,7 @@ const AdminDashboard = () => {
                         colSpan="3"
                         className="has-text-centered has-text-grey"
                       >
-                        Tidak ada data user.
+                        Tidak ada data user
                       </td>
                     </tr>
                   ) : (
@@ -203,7 +203,7 @@ const AdminDashboard = () => {
                 ) : filteredPengunjung.length === 0 ? (
                   <tr>
                     <td colSpan="4" className="has-text-centered has-text-grey">
-                      Tidak ada data pengunjung.
+                      Tidak ada data pengunjung
                     </td>
                   </tr>
                 ) : (

@@ -20,7 +20,7 @@ const RegisterPage = () => {
     }
     const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
     if (!emailRegex.test(email)) {
-      setErrorMsg("Masukkan email yang valid!");
+      setErrorMsg("Masukkan email yang valid !");
       return;
     }
     console.log("Register with", { nama, email, umur, pass });
