@@ -170,8 +170,16 @@ function Dashboard() {
               ))}
             </div>
           ) : (
-            <div className="has-text-centered has-text-grey">
-              Tidak ada konser yang sesuai.
+            <div
+              className="has-text-centered"
+              style={{
+                fontSize: "1.5rem",
+                fontWeight: "bold",
+                color: "#000000",
+                padding: "1rem",
+              }}
+            >
+              Tidak ada konser!
             </div>
           )}
         </div>

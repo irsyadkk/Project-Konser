@@ -213,7 +213,7 @@ function ProfilePage() {
                 })}
               </ul>
             ) : (
-              <p style={{ color: "#bbb" }}>Belum ada tiket yang dimiliki.</p>
+              <p style={{ color: "#bbb" }}>Belum ada tiket yang dimiliki</p>
             )}
           </div>
         </div>
