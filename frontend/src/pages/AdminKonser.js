@@ -348,7 +348,7 @@ function AdminKonser() {
 
       <section className="section">
         <div className="container box">
-          <h2 className="title is-4">Daftar Konser {filteredKonser.length}</h2>
+          <h2 className="title is-4">Daftar Konser</h2>
           <div className="field">
             <div className="control">
               <input
