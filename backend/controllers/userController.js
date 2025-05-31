@@ -71,7 +71,7 @@ export async function getUserByEmail(req, res) {
 //ADD USER
 export const addUser = async (req, res) => {
   try {
-    const { nama, email, umur, pass } = req.body;
+    const { nama, email, umur, pass, photo } = req.body;
     if (!nama || !email || !umur || !pass) {
       const msg = `${
         !nama ? "Nama" : !email ? "Email" : !umur ? "Umur" : "pass"
@@ -95,6 +95,7 @@ export const addUser = async (req, res) => {
     await User.create({
       nama: nama,
       email: email,
+      photo: photo,
       umur: umur,
       pass: encryptedpass,
     });
@@ -113,7 +114,7 @@ export const addUser = async (req, res) => {
 //UPDATE USER
 export const updateUser = async (req, res) => {
   try {
-    const { nama, email, pass } = req.body;
+    const { nama, email, photo, umur, pass } = req.body;
     const ifUserExist = await User.findOne({ where: { id: req.params.id } });
     if (!nama || !email || !umur || !pass) {
       const msg = `${
@@ -130,7 +131,13 @@ export const updateUser = async (req, res) => {
     }
 
     const encryptedpass = await bcrypt.hash(pass, 5);
-    let updatedData = { nama, email, encryptedpass };
+    let updatedData = {
+      nama: nama,
+      email: email,
+      photo: photo,
+      umur: umur,
+      pass: encryptedpass,
+    };
 
     await User.update(updatedData, {
       where: { id: req.params.id },

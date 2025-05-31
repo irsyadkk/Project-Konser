@@ -49,14 +49,14 @@ router.delete("/logout", logout);
 router.get("/users", verifyToken, getUser);
 router.get("/users/:email", verifyToken, getUserByEmail);
 // router.get('/admin/:id', verifyToken, getAdminById);
-// router.patch('/admin/:id', verifyToken, updateAdmin);
-// router.delete('/admin/:id', verifyToken, deleteAdmin);
+router.patch("/users/:id", verifyToken, updateUser);
+router.delete("/admin/:id", verifyToken, deleteUser);
 
 // PENGUNJUNG
 router.get("/pengunjung", verifyToken, getPengunjung);
 router.get("/pengunjung/:email", verifyToken, getPengunjungByEmail);
-//router.post("/pengunjung", verifyToken, addPengunjung);
-//router.patch("/pengunjung/:id", verifyToken, updatePengunjung);
+router.post("/pengunjung", verifyToken, addPengunjung);
+router.patch("/pengunjung/:id", verifyToken, updatePengunjung);
 router.delete("/pengunjung/:id", verifyToken, deletePengunjung);
 
 // KONSER
@@ -69,9 +69,9 @@ router.delete("/konser/:id", verifyToken, deleteKonser);
 // TIKET
 router.get("/tiket", verifyToken, getTiket);
 router.get("/tiket/:id", verifyToken, getTiketById);
-//router.post("/tiket", verifyToken, addTiket);
+router.post("/tiket", verifyToken, addTiket);
 router.patch("/tiket/:id", verifyToken, updateTiket);
-//router.delete("/tiket/:id", verifyToken, deleteTiket);
+router.delete("/tiket/:id", verifyToken, deleteTiket);
 
 // ORDER TIKET
 router.patch("/order/:id", verifyToken, orderTicket);

@@ -40,7 +40,7 @@ Content-Type: application/json
 
 {
 "email": "admin@gmail.com",
-"pass": "12345"
+"pass": "admin"
 }
 
 ###
@@ -65,7 +65,7 @@ Content-Type: application/json
 
 // GET TIKET
 GET https://api-konser-559917148272.us-central1.run.app/tiket
-Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6NCwibmFtYSI6InRlc3QxIiwiZW1haWwiOiJ0ZXN0MSIsInVtdXIiOjI1LCJjcmVhdGVkQXQiOiIyMDI1LTA1LTI3VDA0OjAwOjI5LjAwMFoiLCJ1cGRhdGVkQXQiOiIyMDI1LTA1LTI3VDA0OjAzOjE1LjAwMFoiLCJpYXQiOjE3NDgzMjk4MjMsImV4cCI6MTc0ODQxNjIyM30.ESKGNt3O4r2kNsQS7XlVpUP3OMGXLqCmRNHvWC3m0E4
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MywibmFtYSI6ImFkbWluIiwiZW1haWwiOiJhZG1pbkBnbWFpbC5jb20iLCJ1bXVyIjoyNSwiY3JlYXRlZEF0IjoiMjAyNS0wNS0zMFQwMToyNDo1My4wMDBaIiwidXBkYXRlZEF0IjoiMjAyNS0wNS0zMFQwNTo0NToyMC4wMDBaIiwiaWF0IjoxNzQ4NTg0NDUzLCJleHAiOjE3NDg2NzA4NTN9.qxbR747omsM4f7ldMT75RV9_DufJ2fxnjtAlUD4gDrM
 
 ###
 
@@ -135,9 +135,9 @@ Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwibmFtYSI6I
 ###
 
 // UPDATE KONSER BY ID
-PATCH  http://localhost:5000/konser/2
+PATCH  https://api-konser-559917148272.us-central1.run.app/konser/1
 Content-Type: application/json
-Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwibmFtYSI6InRlcyIsImVtYWlsIjoidGVzQHRlcy5jb20iLCJjcmVhdGVkQXQiOiIyMDI1LTA1LTEyVDA4OjI0OjQ1LjAwMFoiLCJ1cGRhdGVkQXQiOiIyMDI1LTA1LTEyVDE1OjM1OjQ3LjAwMFoiLCJpYXQiOjE3NDcwNjYyMjYsImV4cCI6MTc0NzE1MjYyNn0.5rfL3BtxKMrKFCb9v5EQXCCuDJMmLyYHwNq7XVTfoyE
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MywibmFtYSI6ImFkbWluIiwiZW1haWwiOiJhZG1pbkBnbWFpbC5jb20iLCJ1bXVyIjoyNSwiY3JlYXRlZEF0IjoiMjAyNS0wNS0zMFQwMToyNDo1My4wMDBaIiwidXBkYXRlZEF0IjoiMjAyNS0wNS0zMFQwNDoxMzowNC4wMDBaIiwiaWF0IjoxNzQ4NTc5NjM1LCJleHAiOjE3NDg2NjYwMzV9.X0rYWlkDtjf3Ey-e8Tw_kFGAqnC26AtprQa6yUeFTA4
 
 {
 "nama": "test tiket",
