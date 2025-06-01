@@ -1,6 +1,7 @@
 import Konser from "../models/konserModel.js";
 import Tiket from "../models/tiketModel.js";
 import Pengunjung from "../models/pengunjungModel.js";
+import admin from "../config/fcm.js";
 
 //GET KONSER
 export const getKonser = async (req, res) => {
@@ -87,9 +88,20 @@ export const addKonser = async (req, res) => {
       harga: harga,
       quota: quota,
     });
+
+    const message = {
+      notification: {
+        title: "Konser Baru !",
+        body: `Jangan Ketinggalan Konser Terbaru ${nama} !`,
+      },
+      topic: "konser",
+    };
+
+    await admin.messaging().send(message);
+
     res.status(201).json({
       status: "Success",
-      message: "Konser & Tiket Added",
+      message: "Konser & Tiket Added, Notifikasi Dikirim",
     });
   } catch (error) {
     res.status(error.statusCode || 500).json({

@@ -3,10 +3,13 @@ import cors from "cors";
 import route from "./routes/route.js";
 import dotenv from "dotenv";
 import cookieParser from "cookie-parser";
+import initializeFCM from "./config/fcm.js";
 
 dotenv.config();
+
 const ALLOWED_ORIGINS = process.env.ALLOWED_ORIGINS?.split("|") || [];
 const app = express();
+
 const corsOptions = {
   origin: function (origin, callback) {
     if (!origin || ALLOWED_ORIGINS.includes(origin)) {
@@ -25,4 +28,8 @@ app.use(express.json());
 app.get("/", (req, res) => res.render("index"));
 app.use(route);
 
-app.listen(5000, () => console.log("Connected to server"));
+(async () => {
+  await initializeFCM();
+
+  app.listen(5000, () => console.log("✅ Connected to server at port 5000"));
+})();

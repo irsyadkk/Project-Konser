@@ -1,6 +1,6 @@
-// GET ADMIN
+// GET USER
 GET https://api-konser-559917148272.us-central1.run.app/users
-Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwibmFtYSI6InVzZXIiLCJlbWFpbCI6InVzZXJAZ21haWwuY29tIiwiY3JlYXRlZEF0IjoiMjAyNS0wNS0xOVQxNzowNzozNS4wMDBaIiwidXBkYXRlZEF0IjoiMjAyNS0wNS0xOVQxNzowNzo1MC4wMDBaIiwiaWF0IjoxNzQ3NzA1NjQyLCJleHAiOjE3NDc3OTIwNDJ9._24qnf8E5f1ZDnuixKy9qhLoYIHG2PAdBWwzo-g7uLU
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MiwibmFtYSI6ImFkbWluIiwiZW1haWwiOiJhZG1pbkBnbWFpbC5jb20iLCJwaG90byI6bnVsbCwidW11ciI6MjUsImNyZWF0ZWRBdCI6IjIwMjUtMDUtMzFUMDk6MDk6MzYuMDAwWiIsInVwZGF0ZWRBdCI6IjIwMjUtMDUtMzFUMDk6MDk6MzYuMDAwWiIsImlhdCI6MTc0ODY4MjU4MCwiZXhwIjoxNzQ4NzY4OTgwfQ._7XyPSH38bzkZJkNHR51MbKEEt9e31jXVtu3uENPYDM
 
 # ###
 
@@ -29,7 +29,7 @@ Content-Type: application/json
 "nama": "admin",
 "email": "admin@gmail.com",
 "umur": 25,
-"pass": "1"
+"pass": "admin"
 }
 
 ###
@@ -95,7 +95,7 @@ DELETE http://localhost:5000/tiket/1
 // ORDER TIKET
 PATCH  https://api-konser-559917148272.us-central1.run.app/order/2
 Content-Type: application/json
-Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6NCwibmFtYSI6InRlc3QxIiwiZW1haWwiOiJ0ZXN0MSIsInVtdXIiOjI1LCJjcmVhdGVkQXQiOiIyMDI1LTA1LTI3VDA0OjAwOjI5LjAwMFoiLCJ1cGRhdGVkQXQiOiIyMDI1LTA1LTI3VDA0OjAwOjM5LjAwMFoiLCJpYXQiOjE3NDgzMTg0OTQsImV4cCI6MTc0ODQwNDg5NH0.l-QVde6ztFZW1Tt-05WXU3G84phKg01DhIvQFYTKV1U
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwibmFtYSI6ImFkbWluIiwiZW1haWwiOiJhZG1pbkBnbWFpbC5jb20iLCJwaG90byI6bnVsbCwidW11ciI6MjUsImNyZWF0ZWRBdCI6IjIwMjUtMDYtMDFUMDA6NDE6NTUuMDAwWiIsInVwZGF0ZWRBdCI6IjIwMjUtMDYtMDFUMDA6NDE6NTUuMDAwWiIsImlhdCI6MTc0ODczODUxNywiZXhwIjoxNzQ4ODI0OTE3fQ.NBvJTStrpzIpJyDH4JiZPYbOqVBw-0MoBnZ8HLYR_x8
 
 {
     "nama": "popo",
@@ -108,14 +108,14 @@ Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6NCwibmFtYSI6I
 // ADD KONSER
 POST https://api-konser-559917148272.us-central1.run.app/konser
 Content-Type: application/json
-Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6NCwibmFtYSI6InRlc3QxIiwiZW1haWwiOiJ0ZXN0MSIsInVtdXIiOjI1LCJjcmVhdGVkQXQiOiIyMDI1LTA1LTI3VDA0OjAwOjI5LjAwMFoiLCJ1cGRhdGVkQXQiOiIyMDI1LTA1LTI3VDA0OjAwOjM5LjAwMFoiLCJpYXQiOjE3NDgzMTg0OTQsImV4cCI6MTc0ODQwNDg5NH0.l-QVde6ztFZW1Tt-05WXU3G84phKg01DhIvQFYTKV1U
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwibmFtYSI6ImFkbWluIiwiZW1haWwiOiJhZG1pbkBnbWFpbC5jb20iLCJwaG90byI6bnVsbCwidW11ciI6MjUsImNyZWF0ZWRBdCI6IjIwMjUtMDYtMDFUMDA6NDE6NTUuMDAwWiIsInVwZGF0ZWRBdCI6IjIwMjUtMDYtMDFUMDA6NDE6NTUuMDAwWiIsImlhdCI6MTc0ODczODUxNywiZXhwIjoxNzQ4ODI0OTE3fQ.NBvJTStrpzIpJyDH4JiZPYbOqVBw-0MoBnZ8HLYR_x8
 
 {
-"nama": "Kareem Fest",
+"nama": "HELL",
 "poster": "https://marketplace.canva.com/EAGLxKj0I2M/2/0/1131w/canva-merah-dan-putih-modern-konser-spesial-kemerdekaan-poster-Rw45qHDhqD8.jpg",
-"tanggal": "30 Mei 2026",
-"lokasi": "Jakarta",
-"bintangtamu": "PSY feat. Snoop Dogg",
+"tanggal": "???",
+"lokasi": "HELL",
+"bintangtamu": "DEMON",
 "harga": 400000,
 "quota": 1500
 }
@@ -167,7 +167,7 @@ Content-Type: application/json
 
 // GET PENGUNJUNG
 GET http://localhost:5000/pengunjung
-Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwibmFtYSI6InRlcyIsImVtYWlsIjoidGVzQHRlcy5jb20iLCJjcmVhdGVkQXQiOiIyMDI1LTA1LTEyVDA4OjI0OjQ1LjAwMFoiLCJ1cGRhdGVkQXQiOiIyMDI1LTA1LTEyVDE2OjEwOjI2LjAwMFoiLCJpYXQiOjE3NDcwNjcxNTIsImV4cCI6MTc0NzE1MzU1Mn0.NPFg-1S2Ta0x6u6oVSHhSyjJu0hFgOBBw7HSP6vfv7g
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwibmFtYSI6ImFkbWluIiwiZW1haWwiOiJhZG1pbkBnbWFpbC5jb20iLCJwaG90byI6bnVsbCwidW11ciI6MjUsImNyZWF0ZWRBdCI6IjIwMjUtMDYtMDFUMDA6NDE6NTUuMDAwWiIsInVwZGF0ZWRBdCI6IjIwMjUtMDYtMDFUMDA6NDE6NTUuMDAwWiIsImlhdCI6MTc0ODczODUxNywiZXhwIjoxNzQ4ODI0OTE3fQ.NBvJTStrpzIpJyDH4JiZPYbOqVBw-0MoBnZ8HLYR_x8
 
 ###
 

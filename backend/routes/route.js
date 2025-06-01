@@ -45,12 +45,11 @@ router.post("/register", addUser);
 router.post("/login", loginHandler);
 router.delete("/logout", logout);
 
-// ADMINS
+// USERS
 router.get("/users", verifyToken, getUser);
 router.get("/users/:email", verifyToken, getUserByEmail);
-// router.get('/admin/:id', verifyToken, getAdminById);
 router.patch("/users/:id", verifyToken, updateUser);
-router.delete("/admin/:id", verifyToken, deleteUser);
+router.delete("/users/:id", verifyToken, deleteUser);
 
 // PENGUNJUNG
 router.get("/pengunjung", verifyToken, getPengunjung);
