@@ -97,7 +97,7 @@ export const addKonser = async (req, res) => {
       topic: "konser",
     };
 
-    initializeFCM();
+    await initializeFCM();
     await admin.messaging().send(message);
 
     res.status(201).json({

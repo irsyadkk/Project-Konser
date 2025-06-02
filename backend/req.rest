@@ -108,14 +108,14 @@ Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwibmFtYSI6I
 // ADD KONSER
 POST https://api-konser-559917148272.us-central1.run.app/konser
 Content-Type: application/json
-Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwibmFtYSI6ImFkbWluIiwiZW1haWwiOiJhZG1pbkBnbWFpbC5jb20iLCJwaG90byI6bnVsbCwidW11ciI6MjUsImNyZWF0ZWRBdCI6IjIwMjUtMDYtMDFUMDA6NDE6NTUuMDAwWiIsInVwZGF0ZWRBdCI6IjIwMjUtMDYtMDFUMDA6NDE6NTUuMDAwWiIsImlhdCI6MTc0ODczODUxNywiZXhwIjoxNzQ4ODI0OTE3fQ.NBvJTStrpzIpJyDH4JiZPYbOqVBw-0MoBnZ8HLYR_x8
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MiwibmFtYSI6ImFkbWluIiwiZW1haWwiOiJhZG1pbkBnbWFpbC5jb20iLCJwaG90byI6bnVsbCwidW11ciI6MjUsImNyZWF0ZWRBdCI6IjIwMjUtMDYtMDJUMDQ6MTQ6NDAuMDAwWiIsInVwZGF0ZWRBdCI6IjIwMjUtMDYtMDJUMDQ6MTQ6NDMuMDAwWiIsImlhdCI6MTc0ODg0MDI2NCwiZXhwIjoxNzQ4OTI2NjY0fQ.4np5rLwGfFCLXl5KkPxBQf98LSnPdn1mcqg5BfojapQ
 
 {
-"nama": "HELL",
+"nama": "TEST",
 "poster": "https://marketplace.canva.com/EAGLxKj0I2M/2/0/1131w/canva-merah-dan-putih-modern-konser-spesial-kemerdekaan-poster-Rw45qHDhqD8.jpg",
-"tanggal": "???",
-"lokasi": "HELL",
-"bintangtamu": "DEMON",
+"tanggal": "noti",
+"lokasi": "noti",
+"bintangtamu": "noti",
 "harga": 400000,
 "quota": 1500
 }
