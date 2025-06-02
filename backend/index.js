@@ -8,8 +8,7 @@ import { initializeFCM } from "./config/fcm.js";
 dotenv.config();
 
 const ALLOWED_ORIGINS = process.env.ALLOWED_ORIGINS?.split("|") || [];
-process.env.GOOGLE_APPLICATION_CREDENTIALS =
-  process.env.GOOGLE_APPLICATION_CREDENTIALS;
+process.env.GOOGLE_APPLICATION_CREDENTIALS;
 const app = express();
 
 const corsOptions = {
