@@ -3,11 +3,13 @@ import cors from "cors";
 import route from "./routes/route.js";
 import dotenv from "dotenv";
 import cookieParser from "cookie-parser";
-import initializeFCM from "./config/fcm.js";
+import { initializeFCM } from "./config/fcm.js";
 
 dotenv.config();
 
 const ALLOWED_ORIGINS = process.env.ALLOWED_ORIGINS?.split("|") || [];
+process.env.GOOGLE_APPLICATION_CREDENTIALS =
+  process.env.GOOGLE_APPLICATION_CREDENTIALS;
 const app = express();
 
 const corsOptions = {
@@ -31,5 +33,5 @@ app.use(route);
 (async () => {
   await initializeFCM();
 
-  app.listen(5000, () => console.log("✅ Connected to server at port 5000"));
+  app.listen(5000, () => console.log("Connected to server at port 5000"));
 })();

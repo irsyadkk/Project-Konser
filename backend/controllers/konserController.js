@@ -1,7 +1,7 @@
 import Konser from "../models/konserModel.js";
 import Tiket from "../models/tiketModel.js";
 import Pengunjung from "../models/pengunjungModel.js";
-import admin from "../config/fcm.js";
+import { admin, initializeFCM } from "../config/fcm.js";
 
 //GET KONSER
 export const getKonser = async (req, res) => {
@@ -97,6 +97,7 @@ export const addKonser = async (req, res) => {
       topic: "konser",
     };
 
+    initializeFCM();
     await admin.messaging().send(message);
 
     res.status(201).json({
