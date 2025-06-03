@@ -7,6 +7,7 @@ const Konser = db.define(
     nama: Sequelize.STRING,
     poster: Sequelize.STRING,
     tanggal: Sequelize.STRING,
+    jam: Sequelize.TIME,
     lokasi: Sequelize.STRING,
     bintangtamu: Sequelize.STRING,
   },

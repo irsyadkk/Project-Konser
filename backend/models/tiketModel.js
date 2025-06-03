@@ -11,6 +11,7 @@ const Tiket = db.define(
     },
     nama: Sequelize.STRING,
     tanggal: Sequelize.STRING,
+    jam: Sequelize.TIME,
     harga: Sequelize.INTEGER,
     quota: Sequelize.INTEGER,
   },

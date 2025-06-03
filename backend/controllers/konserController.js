@@ -45,12 +45,13 @@ export const getKonserById = async (req, res) => {
 //ADD KONSER
 export const addKonser = async (req, res) => {
   try {
-    const { nama, poster, tanggal, lokasi, bintangtamu, harga, quota } =
+    const { nama, poster, tanggal, jam, lokasi, bintangtamu, harga, quota } =
       req.body;
     if (
       !nama ||
       !poster ||
       !tanggal ||
+      !jam ||
       !lokasi ||
       !bintangtamu ||
       !harga ||
@@ -63,6 +64,8 @@ export const addKonser = async (req, res) => {
           ? "Poster"
           : !tanggal
           ? "Tanggal"
+          : !jam
+          ? "Jam"
           : !lokasi
           ? "Lokasi"
           : !bintangtamu
@@ -78,6 +81,7 @@ export const addKonser = async (req, res) => {
     await Konser.create({
       nama: nama,
       tanggal: tanggal,
+      jam: jam,
       lokasi: lokasi,
       bintangtamu: bintangtamu,
       poster: poster,
@@ -85,14 +89,15 @@ export const addKonser = async (req, res) => {
     await Tiket.create({
       nama: nama,
       tanggal: tanggal,
+      jam: jam,
       harga: harga,
       quota: quota,
     });
 
     const message = {
       notification: {
-        title: "Konser Baru !",
-        body: `Jangan Ketinggalan Konser Terbaru ${nama} !`,
+        title: "Ada Konser Baru !",
+        body: `Jangan ketinggalan konser ${nama} pada tanggal ${tanggal} !`,
       },
       topic: "konser",
     };
@@ -119,7 +124,7 @@ export const updateKonser = async (req, res) => {
     const ifKonserExist = await Konser.findOne({
       where: { id: req.params.id },
     });
-    if (!nama || !poster || !tanggal || !lokasi || !bintangtamu) {
+    if (!nama || !poster || !tanggal || !jam || !lokasi || !bintangtamu) {
       const msg = `${
         !nama
           ? "Nama"
@@ -127,6 +132,8 @@ export const updateKonser = async (req, res) => {
           ? "Poster"
           : !tanggal
           ? "Tanggal"
+          : !jam
+          ? "Jam"
           : !lokasi
           ? "Lokasi"
           : "Bintang Tamu"

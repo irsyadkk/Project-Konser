@@ -26,10 +26,10 @@ POST https://api-konser-559917148272.us-central1.run.app/register
 Content-Type: application/json
 
 {
-"nama": "admin",
-"email": "admin@gmail.com",
+"nama": "dup",
+"email": "dup@gmail.com",
 "umur": 25,
-"pass": "admin"
+"pass": "dup"
 }
 
 ###
@@ -39,8 +39,8 @@ POST https://api-konser-559917148272.us-central1.run.app/login
 Content-Type: application/json
 
 {
-"email": "admin@gmail.com",
-"pass": "admin"
+"email": "dup@gmail.com",
+"pass": "dup"
 }
 
 ###
@@ -93,14 +93,14 @@ DELETE http://localhost:5000/tiket/1
 ###
 
 // ORDER TIKET
-PATCH  https://api-konser-559917148272.us-central1.run.app/order/2
+PATCH  https://api-konser-559917148272.us-central1.run.app/order/1
 Content-Type: application/json
-Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwibmFtYSI6ImFkbWluIiwiZW1haWwiOiJhZG1pbkBnbWFpbC5jb20iLCJwaG90byI6bnVsbCwidW11ciI6MjUsImNyZWF0ZWRBdCI6IjIwMjUtMDYtMDFUMDA6NDE6NTUuMDAwWiIsInVwZGF0ZWRBdCI6IjIwMjUtMDYtMDFUMDA6NDE6NTUuMDAwWiIsImlhdCI6MTc0ODczODUxNywiZXhwIjoxNzQ4ODI0OTE3fQ.NBvJTStrpzIpJyDH4JiZPYbOqVBw-0MoBnZ8HLYR_x8
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6NSwibmFtYSI6ImR1cCIsImVtYWlsIjoiZHVwQGdtYWlsLmNvbSIsInBob3RvIjpudWxsLCJ1bXVyIjoyNSwiY3JlYXRlZEF0IjoiMjAyNS0wNi0wMlQwNTo1NDo1Mi4wMDBaIiwidXBkYXRlZEF0IjoiMjAyNS0wNi0wMlQwNTo1NDo1Mi4wMDBaIiwiaWF0IjoxNzQ4ODQzNjk1LCJleHAiOjE3NDg5MzAwOTV9.Ygln88nICtkEzMeXNBnStLQSy9DCi9Sg9XoX5KijxzQ
 
 {
-    "nama": "popo",
-    "umur": "20",
-    "email": "popo@gmail.com"
+    "nama": "dup",
+    "umur": "25",
+    "email": "dup@gmail.com"
 }
 
 ###
@@ -111,10 +111,10 @@ Content-Type: application/json
 Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MiwibmFtYSI6ImFkbWluIiwiZW1haWwiOiJhZG1pbkBnbWFpbC5jb20iLCJwaG90byI6bnVsbCwidW11ciI6MjUsImNyZWF0ZWRBdCI6IjIwMjUtMDYtMDJUMDQ6MTQ6NDAuMDAwWiIsInVwZGF0ZWRBdCI6IjIwMjUtMDYtMDJUMDQ6MTQ6NDMuMDAwWiIsImlhdCI6MTc0ODg0MDI2NCwiZXhwIjoxNzQ4OTI2NjY0fQ.4np5rLwGfFCLXl5KkPxBQf98LSnPdn1mcqg5BfojapQ
 
 {
-"nama": "TEST",
-"poster": "https://marketplace.canva.com/EAGLxKj0I2M/2/0/1131w/canva-merah-dan-putih-modern-konser-spesial-kemerdekaan-poster-Rw45qHDhqD8.jpg",
-"tanggal": "noti",
-"lokasi": "noti",
+"nama": "noti closed",
+"poster": "kaan-poster-Rw45qHDhqD8.jpg",
+"tanggal": "Winter",
+"lokasi": "Saju",
 "bintangtamu": "noti",
 "harga": 400000,
 "quota": 1500

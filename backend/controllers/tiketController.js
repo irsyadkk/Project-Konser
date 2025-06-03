@@ -42,10 +42,18 @@ export const getTiketById = async (req, res) => {
 //ADD TIKET
 export const addTiket = async (req, res) => {
   try {
-    const { nama, tanggal, harga, quota } = req.body;
+    const { nama, tanggal, jam, harga, quota } = req.body;
     if (!nama || !tanggal || !harga || !quota) {
       const msg = `${
-        !nama ? "Nama" : !tanggal ? "Tanggal" : !harga ? "Harga" : "quota"
+        !nama
+          ? "Nama"
+          : !tanggal
+          ? "Tanggal"
+          : !jam
+          ? "Jam"
+          : !harga
+          ? "Harga"
+          : "quota"
       } field cannot be empty !`;
       const error = new Error(msg);
       error.statusCode = 401;
@@ -54,6 +62,7 @@ export const addTiket = async (req, res) => {
     await Tiket.create({
       nama: nama,
       tanggal: tanggal,
+      jam: jam,
       harga: harga,
       quota: quota,
     });
