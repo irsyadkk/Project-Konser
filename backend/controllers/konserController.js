@@ -120,7 +120,7 @@ export const addKonser = async (req, res) => {
 //UPDATE KONSER
 export const updateKonser = async (req, res) => {
   try {
-    const { nama, poster, tanggal, lokasi, bintangtamu } = req.body;
+    const { nama, poster, tanggal, jam, lokasi, bintangtamu } = req.body;
     const ifKonserExist = await Konser.findOne({
       where: { id: req.params.id },
     });
@@ -148,13 +148,13 @@ export const updateKonser = async (req, res) => {
       throw error;
     }
     const oldNama = ifKonserExist.nama;
-    let updatedData = { nama, poster, tanggal, lokasi, bintangtamu };
+    let updatedData = { nama, poster, tanggal, jam, lokasi, bintangtamu };
 
     await Konser.update(updatedData, {
       where: { id: req.params.id },
     });
     await Tiket.update(
-      { nama: nama, tanggal: tanggal },
+      { nama: nama, tanggal: tanggal, jam: jam },
       {
         where: { id: req.params.id },
       }
