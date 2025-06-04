@@ -45,14 +45,26 @@ export const getKonserById = async (req, res) => {
 //ADD KONSER
 export const addKonser = async (req, res) => {
   try {
-    const { nama, poster, tanggal, jam, lokasi, bintangtamu, harga, quota } =
-      req.body;
+    const {
+      nama,
+      poster,
+      tanggal,
+      jam,
+      lokasi,
+      latitude,
+      longitude,
+      bintangtamu,
+      harga,
+      quota,
+    } = req.body;
     if (
       !nama ||
       !poster ||
       !tanggal ||
       !jam ||
       !lokasi ||
+      !latitude ||
+      !longitude ||
       !bintangtamu ||
       !harga ||
       !quota
@@ -68,6 +80,10 @@ export const addKonser = async (req, res) => {
           ? "Jam"
           : !lokasi
           ? "Lokasi"
+          : !latitude
+          ? "Latitude"
+          : !longitude
+          ? "Longitude"
           : !bintangtamu
           ? "Bintang Tamu"
           : !harga
@@ -83,6 +99,8 @@ export const addKonser = async (req, res) => {
       tanggal: tanggal,
       jam: jam,
       lokasi: lokasi,
+      latitude: latitude,
+      longitude: longitude,
       bintangtamu: bintangtamu,
       poster: poster,
     });
@@ -120,11 +138,29 @@ export const addKonser = async (req, res) => {
 //UPDATE KONSER
 export const updateKonser = async (req, res) => {
   try {
-    const { nama, poster, tanggal, jam, lokasi, bintangtamu } = req.body;
+    const {
+      nama,
+      poster,
+      tanggal,
+      jam,
+      lokasi,
+      latitude,
+      longitude,
+      bintangtamu,
+    } = req.body;
     const ifKonserExist = await Konser.findOne({
       where: { id: req.params.id },
     });
-    if (!nama || !poster || !tanggal || !jam || !lokasi || !bintangtamu) {
+    if (
+      !nama ||
+      !poster ||
+      !tanggal ||
+      !jam ||
+      !lokasi ||
+      !latitude ||
+      !longitude ||
+      !bintangtamu
+    ) {
       const msg = `${
         !nama
           ? "Nama"
@@ -136,6 +172,10 @@ export const updateKonser = async (req, res) => {
           ? "Jam"
           : !lokasi
           ? "Lokasi"
+          : !latitude
+          ? "Latitude"
+          : !longitude
+          ? "Longiitude"
           : "Bintang Tamu"
       } field cannot be empty !`;
       const error = new Error(msg);
@@ -148,7 +188,16 @@ export const updateKonser = async (req, res) => {
       throw error;
     }
     const oldNama = ifKonserExist.nama;
-    let updatedData = { nama, poster, tanggal, jam, lokasi, bintangtamu };
+    let updatedData = {
+      nama,
+      poster,
+      tanggal,
+      jam,
+      lokasi,
+      latitude,
+      longitude,
+      bintangtamu,
+    };
 
     await Konser.update(updatedData, {
       where: { id: req.params.id },

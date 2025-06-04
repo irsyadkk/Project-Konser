@@ -9,6 +9,8 @@ const Konser = db.define(
     tanggal: Sequelize.STRING,
     jam: Sequelize.TIME,
     lokasi: Sequelize.STRING,
+    latitude: Sequelize.DOUBLE,
+    longitude: Sequelize.DOUBLE,
     bintangtamu: Sequelize.STRING,
   },
   {
