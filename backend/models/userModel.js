@@ -11,7 +11,6 @@ const User = db.define(
     },
     nama: Sequelize.STRING,
     email: Sequelize.STRING,
-    photo: Sequelize.STRING,
     umur: Sequelize.INTEGER,
     pass: Sequelize.STRING,
     refresh_token: Sequelize.TEXT,

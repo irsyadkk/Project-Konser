@@ -1,6 +1,6 @@
 // GET USER
 GET https://api-konser-559917148272.us-central1.run.app/users
-Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MiwibmFtYSI6ImFkbWluIiwiZW1haWwiOiJhZG1pbkBnbWFpbC5jb20iLCJwaG90byI6bnVsbCwidW11ciI6MjUsImNyZWF0ZWRBdCI6IjIwMjUtMDUtMzFUMDk6MDk6MzYuMDAwWiIsInVwZGF0ZWRBdCI6IjIwMjUtMDUtMzFUMDk6MDk6MzYuMDAwWiIsImlhdCI6MTc0ODY4MjU4MCwiZXhwIjoxNzQ4NzY4OTgwfQ._7XyPSH38bzkZJkNHR51MbKEEt9e31jXVtu3uENPYDM
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MiwibmFtYSI6ImFkbWluIiwiZW1haWwiOiJhZG1pbkBnbWFpbC5jb20iLCJwaG90byI6bnVsbCwidW11ciI6MjAsImNyZWF0ZWRBdCI6IjIwMjUtMDYtMDdUMDY6NDI6NTguMDAwWiIsInVwZGF0ZWRBdCI6IjIwMjUtMDYtMDdUMDc6NDI6MDkuMDAwWiIsImlhdCI6MTc0OTI4NTEwMCwiZXhwIjoxNzQ5MzcxNTAwfQ.CjlkhmdkYWUuj5BQYb_TbkvLS1wbfTUmWDDOdfgJ_AU
 
 # ###
 
@@ -26,10 +26,10 @@ POST https://api-konser-559917148272.us-central1.run.app/register
 Content-Type: application/json
 
 {
-"nama": "dup",
-"email": "dup@gmail.com",
+"nama": "admin",
+"email": "admin@gmail.com",
 "umur": 25,
-"pass": "dup"
+"pass": "admin"
 }
 
 ###
@@ -39,8 +39,8 @@ POST https://api-konser-559917148272.us-central1.run.app/login
 Content-Type: application/json
 
 {
-"email": "dup@gmail.com",
-"pass": "dup"
+"email": "admin@gmail.com",
+"pass": "admin"
 }
 
 ###
@@ -108,14 +108,17 @@ Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6NSwibmFtYSI6I
 // ADD KONSER
 POST https://api-konser-559917148272.us-central1.run.app/konser
 Content-Type: application/json
-Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MiwibmFtYSI6ImFkbWluIiwiZW1haWwiOiJhZG1pbkBnbWFpbC5jb20iLCJwaG90byI6bnVsbCwidW11ciI6MjUsImNyZWF0ZWRBdCI6IjIwMjUtMDYtMDJUMDQ6MTQ6NDAuMDAwWiIsInVwZGF0ZWRBdCI6IjIwMjUtMDYtMDJUMDQ6MTQ6NDMuMDAwWiIsImlhdCI6MTc0ODg0MDI2NCwiZXhwIjoxNzQ4OTI2NjY0fQ.4np5rLwGfFCLXl5KkPxBQf98LSnPdn1mcqg5BfojapQ
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MiwibmFtYSI6ImFkbWluIiwiZW1haWwiOiJhZG1pbkBnbWFpbC5jb20iLCJwaG90byI6bnVsbCwidW11ciI6MjAsImNyZWF0ZWRBdCI6IjIwMjUtMDYtMDZUMTI6Mjc6NTQuMDAwWiIsInVwZGF0ZWRBdCI6IjIwMjUtMDYtMDZUMjA6Mjk6MzAuMDAwWiIsImlhdCI6MTc0OTI2NDQ0NywiZXhwIjoxNzQ5MzUwODQ3fQ.D1ODjUKMSCSUrL7btmWT2wIP9jTyJTeMlcP_8dey9_o
 
 {
-"nama": "noti closed",
-"poster": "kaan-poster-Rw45qHDhqD8.jpg",
-"tanggal": "Winter",
-"lokasi": "Saju",
-"bintangtamu": "noti",
+"nama": "l",
+"poster": "https://i.pinimg.com/736x/7e/af/c0/7eafc00a4fe0b0bd065f877c4d5dba49.jpg",
+"tanggal": "2025-05-20",
+"jam": "15:39",
+"lokasi": "Jakarta",
+"latitude": "-7.785287454363014",
+"longitude": "110.41408932328721",
+"bintangtamu": "Rock Stars",
 "harga": 400000,
 "quota": 1500
 }
@@ -166,14 +169,14 @@ Content-Type: application/json
 ###
 
 // GET PENGUNJUNG
-GET http://localhost:5000/pengunjung
-Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwibmFtYSI6ImFkbWluIiwiZW1haWwiOiJhZG1pbkBnbWFpbC5jb20iLCJwaG90byI6bnVsbCwidW11ciI6MjUsImNyZWF0ZWRBdCI6IjIwMjUtMDYtMDFUMDA6NDE6NTUuMDAwWiIsInVwZGF0ZWRBdCI6IjIwMjUtMDYtMDFUMDA6NDE6NTUuMDAwWiIsImlhdCI6MTc0ODczODUxNywiZXhwIjoxNzQ4ODI0OTE3fQ.NBvJTStrpzIpJyDH4JiZPYbOqVBw-0MoBnZ8HLYR_x8
+GET https://api-konser-559917148272.us-central1.run.app/pengunjung
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MiwibmFtYSI6ImFkbWluIiwiZW1haWwiOiJhZG1pbkBnbWFpbC5jb20iLCJwaG90byI6bnVsbCwidW11ciI6MjAsImNyZWF0ZWRBdCI6IjIwMjUtMDYtMDZUMTI6Mjc6NTQuMDAwWiIsInVwZGF0ZWRBdCI6IjIwMjUtMDYtMDZUMTM6MTA6MzQuMDAwWiIsImlhdCI6MTc0OTIxNTc4NCwiZXhwIjoxNzQ5MzAyMTg0fQ.Tj99x8scpi42HGgPPiyOZ2d_xB7mTde4H0JOKHU6aLg
 
 ###
 
-// GET PENGUNJUNG BY ID
-GET http://localhost:5000/pengunjung/1
-Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwibmFtYSI6InRlcyIsImVtYWlsIjoidGVzQHRlcy5jb20iLCJjcmVhdGVkQXQiOiIyMDI1LTA1LTEyVDA4OjI0OjQ1LjAwMFoiLCJ1cGRhdGVkQXQiOiIyMDI1LTA1LTEyVDE1OjM1OjQ3LjAwMFoiLCJpYXQiOjE3NDcwNjYyMjYsImV4cCI6MTc0NzE1MjYyNn0.5rfL3BtxKMrKFCb9v5EQXCCuDJMmLyYHwNq7XVTfoyE
+// GET PENGUNJUNG BY EMAIL
+GET https://api-konser-559917148272.us-central1.run.app/pengunjung/user@gmail.com
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MiwibmFtYSI6ImFkbWluIiwiZW1haWwiOiJhZG1pbkBnbWFpbC5jb20iLCJwaG90byI6bnVsbCwidW11ciI6MjAsImNyZWF0ZWRBdCI6IjIwMjUtMDYtMDZUMTI6Mjc6NTQuMDAwWiIsInVwZGF0ZWRBdCI6IjIwMjUtMDYtMDZUMTM6MTA6MzQuMDAwWiIsImlhdCI6MTc0OTIxNTc4NCwiZXhwIjoxNzQ5MzAyMTg0fQ.Tj99x8scpi42HGgPPiyOZ2d_xB7mTde4H0JOKHU6aLg
 
 ###
 
